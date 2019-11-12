@@ -8,6 +8,8 @@ USER node
 
 COPY package.json package-lock.json ./
 
-RUN npm install --silent
+RUN npm install
 
 COPY --chown=node:node . .
+
+CMD ["npm","start"]
