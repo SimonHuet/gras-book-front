@@ -10,6 +10,7 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
+    "pre-commit": "npm run test",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
