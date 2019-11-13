@@ -10,12 +10,13 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "pre-commit": "npm test",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9001"
+    "storybook": "start-storybook -p 9001",
+    "precommit": "npm test",
+    "prepush": "npm test"
   },
   "eslintConfig": {
     "extends": "react-app"
