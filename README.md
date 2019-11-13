@@ -26,3 +26,13 @@ Using jest embed in create react app, launch the following command :
 `docker-compose run client npm test`
 
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+## Storybook
+
+Add a .stories.js in components dir to describe story behavior
+
+You can launch the storybook with the following command :
+
+`docker-compose exec client npm run storybook`
+
+PS: the client container has to be running to launch this command
