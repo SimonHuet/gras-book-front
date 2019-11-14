@@ -12,11 +12,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll",
+    "test-ci": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9001",
-    "precommit": "npm test",
-    "prepush": "npm test"
+    "build-storybook": "build-storybook -s public -o .storybook-build",
+    "eslint": "eslint src/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"

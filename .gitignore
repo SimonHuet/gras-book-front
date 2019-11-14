@@ -21,3 +21,4 @@ yarn-error.log*
 .vscode
 
 docker-compose.yml
+.storybook-build
