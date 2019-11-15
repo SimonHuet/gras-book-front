@@ -38,6 +38,7 @@ pages:
   image: node:12.12.0
   script:
     - npm run build-storybook
+    - rm -r public
     - mv .storybook-build public
   cache:
     paths:
@@ -46,6 +47,6 @@ pages:
   artifacts:
     paths:
       - public
-  #  only:
-  #    - master
+    only:
+      - master
   allow_failure: true
