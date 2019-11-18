@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button.js';
+import Button from './Button';
 
 export default { title: 'Button' };
 
@@ -12,4 +12,4 @@ export const withText = () =>
             <br/>
             <br/>
             <Button large placeholder="Gras book" />
-        </div>
+        </div>;

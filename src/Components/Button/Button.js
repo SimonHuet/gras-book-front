@@ -1,22 +1,24 @@
 import React from 'react';
-import classNames from 'classnames'
+import classNames from 'classnames';
 
-export default (props) => 
-    <button 
+export default (props) => {
+    const { disabled, placeholder} = props;
+    return <button
         type="button"
-        className={ buttonClasses(props) }
-        disabled={props.disabled}
+        className={buttonClasses(props)}
+        disabled={disabled}
     >
-        {props.placeholder}
-</button>
+        {placeholder}
+    </button>;
+};
 
 
 
 const buttonClasses = (props) =>
-    classNames( 'btn btn-primary',
+    classNames('btn btn-primary',
         {
-            'btn-sm' : props.small,
-            'btn-md' : props.medium, 
-            'btn-lg' : props.large
+            'btn-sm': props.small,
+            'btn-md': props.medium,
+            'btn-lg': props.large
         }
-    )
+    );
