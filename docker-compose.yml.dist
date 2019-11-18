@@ -7,4 +7,3 @@ services:
       - 9001:9001
     volumes: 
       - .:/home/node/app
-    
