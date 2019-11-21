@@ -26,18 +26,18 @@ build:
 test:
   stage: test
   script:
-    - npm run test-ci --ci --detectOpenHandles --forceExit
+    - npm run test:ci --ci --detectOpenHandles --forceExit
 
 test:eslint:
   stage: test
   script:
-    - npm run eslint
+    - npm run test:eslint
 
 pages:
   stage: deploy
   image: node:12.12.0
   script:
-    - npm run build-storybook
+    - npm run build:storybook
     - rm -r public
     - mv .storybook-build public
   cache:
