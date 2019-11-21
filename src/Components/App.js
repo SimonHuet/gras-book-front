@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import Router from 'Utils/Router/Router';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      App
-    </div>
-  );
+  <div className="App">
+    <Suspense fallback="loading">
+      <Router />
+    </Suspense>
+  </div>)
 }
 
-export default App;
+export default (App);
