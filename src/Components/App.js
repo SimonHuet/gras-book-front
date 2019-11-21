@@ -8,4 +8,4 @@ const App = () => <div className="App">
   </SuspenseWrapper>
 </div>;
 
-export default (App);
+export default App;

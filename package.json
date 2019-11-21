@@ -28,7 +28,7 @@
     "build": "npm-run-all build:js build:locales",
     "build:js": "react-scripts build",
     "build:storybook": "build-storybook -s public -o .storybook-build",
-    "build:locales": "npm run prepare:locales:production",
+    "build:locales": "npm run prepare-locales:production",
     "test": "react-scripts test --watchAll",
     "test:ci": "react-scripts test",
     "test:eslint": "eslint ./src/**/*.js",
