@@ -20,16 +20,20 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm-run-all --parrallel watch start:*  ",
+    "start:js": "react-scripts start",
+    "start:storybook": "start-storybook -p 9001 --ci",
+    "build" : "npm-run-all build:js build:locales",
+    "build:js": "react-scripts build",
+    "build:storybook": "build-storybook -s public -o .storybook-build",
+    "build:locales": "npm run prepare:locales:production",
     "test": "react-scripts test --watchAll",
-    "test-ci": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9001",
-    "build-storybook": "build-storybook -s public -o .storybook-build",
-    "eslint": "eslint ./src/**/*.js",
-    "watch:locales" : "nodemon --watch \"src/**/locales/*.json\" --json --exec \"npm run prepare-locales",
-    "prepare-locales": "nodemon -e"
+    "test:ci": "react-scripts test",
+    "test:eslint": "eslint ./src/**/*.js",
+    "watch:locales": "nodemon --watch \"src/**/locales/*.json\" --json --exec \"npm run prepare-locales:deployement",
+    "prepare-locales:deployement": "node -e 'require(\"./util/prepare-locales.js\")(\"public\")'",
+    "prepare-locales:production": "node -e 'require(\"./util/prepare-locales.js\")(\"build\")'",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
