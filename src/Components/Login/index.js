@@ -6,5 +6,5 @@ export default () => {
     return (<>
     <h1>{t('title')}</h1>
     <div>test</div>
-</>)
-}
+</>);
+};

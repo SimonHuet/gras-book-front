@@ -16,6 +16,7 @@ i18n
             {
                 loadPath: `locales/{{ns}}/{{lng}}.json`,
             },
+            loadPath: `locales/{{ns}}/{{lng}}.json`
         }, 
         interpolation: {
             escapeValue: false,

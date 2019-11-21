@@ -7,7 +7,7 @@ const App = () => {
     <Suspense fallback="loading">
       <Router />
     </Suspense>
-  </div>)
-}
+  </div>);
+};
 
 export default (App);

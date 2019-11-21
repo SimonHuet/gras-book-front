@@ -6,20 +6,23 @@ const fs = require('fs');
 
 module.exports = dir => 
     availableLocales.map( locale => 
+        // eslint-disable-next-line consistent-return
         glob(`./src/**/locales/${locale}.json`, {}, (error, globFiles) => {
-            if(error) console.log(error);
+            // eslint-disable-next-line no-console
+            if(error) return console.log(error);
             
             if(globFiles.length) {
                 globFiles.map(file => {
                     const namespace = file.match(/[A-z]{1}[A-z]*(?=[/]locales)/g)[0];
                     const dirPath   = `./${dir}/locales/${namespace}`;
                     const output    = `${dirPath}/${locale}.json`;
+                    
+                    if(!fs.existsSync(dirPath)) { 
+                        fs.mkdirSync(dirPath, {recursive: true});
+                    }
 
-                    if(!fs.existsSync(dirPath)) fs.mkdirSync(dirPath);
-
-                    return jsonConcat({ src: file , dest: output}, json => minifyJson(output))
-                })
+                    return jsonConcat({ src: file , dest: output}, json => minifyJson(output));
+                });
             }
-
         })
-    )
+    );
