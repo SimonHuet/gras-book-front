@@ -1,11 +1,11 @@
 import React from 'react';
+import Router from 'Utils/Router/Router';
+import { SuspenseWrapper } from 'Components/UI/utils/SuspenseWrapper';
 
-function App() {
-  return (
-    <div className="App">
-      App
-    </div>
-  );
-}
+const App = () => <div className="App">
+  <SuspenseWrapper>
+    <Router />
+  </SuspenseWrapper>
+</div>;
 
 export default App;
