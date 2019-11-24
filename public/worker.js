@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-globals */
-const CACHE_NAME = 'pwa-task-manager';
+const CACHE_NAME = 'pwa-grasbook';
 const urlsToCache = [
   '/',
-  '/completed'
+  '/network-error'
 ];
 
 // Install a service worker
@@ -35,7 +35,7 @@ self.addEventListener('fetch', event => {
 
 // Update a service worker
 self.addEventListener('activate', event => {
-  const cacheWhitelist = ['pwa-task-manager'];
+  const cacheWhitelist = ['pwa-grasbook'];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -43,6 +43,7 @@ self.addEventListener('activate', event => {
           if (cacheWhitelist.indexOf(cacheName) === -1) {
             return caches.delete(cacheName);
           }
+          return null;
         })
       );
     })
