@@ -1,0 +1,6 @@
+{
+    "error": {
+        "title": "Erreur réseau",
+        "message": "Il n'y as pas de réseau internet, Essayez d'éteindre puis de rallumer votre routeur"
+    }
+}
