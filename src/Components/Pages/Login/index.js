@@ -8,7 +8,7 @@ export default () => {
   return (<>
     <h1>{t('title')}</h1>
     <div>{JSON.stringify(keycloak)}</div>
-    {!!keycloak.authenticated && (
+    {keycloak.authenticated && (
       <button type="button" onClick={() => keycloak.logout()}>
         Logout
         </button>
