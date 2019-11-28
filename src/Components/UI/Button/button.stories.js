@@ -1,15 +1,15 @@
 import React from 'react';
-import Button from './Button';
+import Button from '@material-ui/core/Button';
 
 export default { title: 'Button' };
 
 export const withText = () => 
         <div style={{ padding: '10px' }}>
-            <Button small placeholder="Gras book" />
+            <Button variant="contained" color="primary"> Gras book </Button>
             <br/>
             <br/>
-            <Button medium placeholder="Gras book" />
+            <Button variant="contained"> Gras book </Button>
             <br/>
             <br/>
-            <Button large placeholder="Gras book" />
+            <Button variant="contained" disabled > Gras book disabled </Button>
         </div>;
