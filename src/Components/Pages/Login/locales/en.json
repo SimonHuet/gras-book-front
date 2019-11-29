@@ -1,3 +1,11 @@
 {
-    "title" : "Welcome on GrasBook"
+    "auth" : { 
+        "title" : "Welcome on GrasBook",
+        "infos" : "The connection is made from the Keycloak tool, so you will be redirected",
+        "manager": {
+            "redirect": {
+                "placeholder": "Log in"
+            }
+        }
+    }
 }
