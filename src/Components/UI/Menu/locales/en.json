@@ -1,0 +1,11 @@
+{
+    "navigation": {
+        "status": "How are you today ?",
+        "home": "Home",
+        "profile": "My profile",
+        "groups": "My groups",
+        "notification": "Notifications",
+        "messages": "Messages",
+        "settings": "Settings"
+    }
+}
