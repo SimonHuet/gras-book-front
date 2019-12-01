@@ -1,0 +1,8 @@
+{
+    "realm": "staging",
+    "auth-server-url": "http://keycloack.eddycheval.codes/auth/",
+    "ssl-required": "none",
+    "resource": "grasbook-front",
+    "public-client": true,
+    "confidential-port": 0
+}
