@@ -11,6 +11,7 @@ import {
     Paper,
     Typography
 } from '@material-ui/core';
+import AppIcon from 'Components/UI/AppIcon';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,11 +30,6 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-    },
-    avatar: {
-        margin: theme.spacing(1),
-        width: '64px',
-        height: '64px',
     },
     copyright: {
         bottom: theme.spacing(100),
@@ -66,7 +62,7 @@ export default () => {
                         {t('auth.title')} 
                     </Typography>
                     
-                    <img className={classes.avatar} src={`${process.env.PUBLIC_URL}icon-512.png`} alt="gras-book-logo" />
+                    <AppIcon medium />
                     
                     <br/>
                     <Typography component="p">

@@ -1,0 +1,14 @@
+{
+    "menu" : {
+        "profile" :{
+            "label" : "Mon profil",
+            "timeline" : {
+                "label" : "Ma timeline"
+            }
+        },
+        "logout" :{
+            "label" : "Se déconnecter"
+        }
+        
+    }
+}
