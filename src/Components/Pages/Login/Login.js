@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useKeycloak } from 'react-keycloak';
 import {
     Box,
     Button,
@@ -52,6 +53,7 @@ const Copyright = () =>
 export default () => {
     const { t } = useTranslation('Login');
     const classes = useStyles();
+    const { keycloak } = useKeycloak();
 
     return (
         <Grid container component="main" className={classes.root}>
@@ -71,7 +73,7 @@ export default () => {
                         {t('auth.infos')}
                     </Typography>
 
-                    <Button color="primary" className={classes.button} >
+                    <Button color="primary" className={classes.button} onClick={() => keycloak.login()}>
                         <Link >{t('auth.manager.redirect.placeholder')}</Link>
                     </Button>
 
