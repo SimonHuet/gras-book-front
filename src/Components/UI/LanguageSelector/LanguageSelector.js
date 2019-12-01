@@ -22,9 +22,8 @@ const DropdownItemComponent = ({
             onClick={() => onClick(item.code)}
             color="inherit"
         >
-            {item.icon &&
-                <FlagIcon code={item.icon} /> && '&nbsp'
-            }
+                <FlagIcon code={item.icon} />
+                &nbsp;
             {item.label}
         </Box>
         );
