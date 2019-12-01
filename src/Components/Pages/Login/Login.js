@@ -12,6 +12,7 @@ import {
     Typography
 } from '@material-ui/core';
 import AppIcon from 'Components/UI/AppIcon';
+import LanguageSelector from 'Components/UI/LanguageSelector';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -72,6 +73,8 @@ export default () => {
                     <Button color="primary" className={classes.button} onClick={() => keycloak.login()}>
                         <Link >{t('auth.manager.redirect.placeholder')}</Link>
                     </Button>
+
+                    <LanguageSelector />
 
                     <Box className={classes.copyright} mt={5}>
                         <Copyright />
