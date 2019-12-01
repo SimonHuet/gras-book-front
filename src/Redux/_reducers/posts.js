@@ -4,7 +4,7 @@ import { postsConstants } from 'Redux/_constants/posts';
 export const INITIAL_STATE = {
     posts: [],
     isFetchingPosts: false,
-    isFetchError: false,
+    fetchError: false,
 };
 
 export const reducer = (oldSate = INITIAL_STATE, action = {}) => {
@@ -27,7 +27,7 @@ export const reducer = (oldSate = INITIAL_STATE, action = {}) => {
             return {
                 ...oldSate,
                 isFetchingPosts: false,
-                isFetchError: true,
+                fetchError: action.error,
             };
         default:
             return oldSate;

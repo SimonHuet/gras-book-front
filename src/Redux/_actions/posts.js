@@ -9,6 +9,7 @@ export const postsFetched = posts => ({
   posts
 });
 
-export const postsFetchError = () => ({
+export const postsFetchError = error => ({
   type: postsConstants.POSTS_FETCH_ERROR,
+  error
 });
