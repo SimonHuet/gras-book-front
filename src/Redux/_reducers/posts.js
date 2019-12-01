@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { postsConstants } from 'Redux/_constants/posts';
 
 export const INITIAL_STATE = {
