@@ -31,11 +31,11 @@ const DropdownItemComponent = ({
 
 const LabelComponent = ({ languages, currentLocale, className }) => {
     const language = languages.find(item => item.code === currentLocale);
+    if(!language) return <></>;
 
     return <Box color="inherit" className={className} >
-        {language.icon &&
-            <FlagIcon className="flagIcon" code={language.icon} /> && '&nbsp'
-        }
+            <FlagIcon className="flagIcon" code={language.icon} /> 
+            &nbsp;
         {language.label}
     </Box>;
 };
