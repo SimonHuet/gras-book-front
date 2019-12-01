@@ -1,0 +1,24 @@
+{
+    "home" : { 
+        "header": "Gras-Book - Home Page",
+        "navigation": {
+            "status": "How are you today ?",
+            "home": "Home",
+            "profile": "My profile",
+            "groups": "My groups",
+            "notification": "Notifications",
+            "messages": "Messages",
+            "settings": "Settings"
+        },
+        "research": {
+            "tendancies": "Top tendancies",
+            "suggests": "Suggestions"
+        },
+        "timeline": {
+            "postCreator": {
+                "placeholder": "Hey, say something today ?",
+                "buttonCreate": "Create Post"
+            }
+        }
+    }
+}
