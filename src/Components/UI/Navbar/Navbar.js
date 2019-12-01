@@ -10,8 +10,6 @@ import {
     makeStyles
 } from '@material-ui/core';
 
-import { fade } from '@material-ui/core/styles';
-
 import AppIcon from 'Components/UI/AppIcon';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
