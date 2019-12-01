@@ -5,7 +5,7 @@ import { FlagIcon } from 'Components/UI/utils/FlagIcon';
 
 const availableLanguages = [
     { label: 'Français', icon: 'fr', code: 'fr' },
-    { label: 'English', icon: 'gb', code: 'en' }
+    { label: 'English', icon: 'gb', code: 'en' },
 ];
 
 const DropdownItemComponent = ({
@@ -27,24 +27,27 @@ const DropdownItemComponent = ({
         </Box>
         );
 
-const LabelComponent = ({ languages, currentLocale, className}) => {
+const LabelComponent = ({ languages, currentLocale, className }) => {
     const language = languages.find(item => item.code === currentLocale);
 
     return (
         <Box color="inherit" className={className} >
-            <FlagIcon code={language.icon} />
+            <FlagIcon className="flagIcon" code={language.icon} /> &nbsp;
             {language.label}
         </Box>
     );
 };
 
 const useStyles = makeStyles(theme => ({
-    label: {},
-    dropdown: {
-        flexDirection: "column"
+    dropdownOptions: {
+        borderRadius: '0.25rem',
+        margin: '2vh',
+        minWidth: 'unset',
+        padding: '0.25rem',
     },
-    button: {
-        display: 'flex',
+    dropdownButton: {
+        backgroundColor: 'transparent',
+        fontWeight: '600',
     },
 }));
 
@@ -71,14 +74,14 @@ export const LanguageSelector = () => {
         onClick={onClick}
         onMouseLeave={onMouseLeave}
         color="inherit"
-        className={classes.root}
+        className={classes.dropdownButton}
     >
-        <LabelComponent languages={availableLanguages} currentLocale={i18n.language} className={classes.label} />
+        <LabelComponent languages={availableLanguages} currentLocale={i18n.language} />
 
         <div
             aria-labelledby="languageSelector"
             hidden={!showDropdown}
-            className={classes.dropdown}
+            className={classes.dropdownOptions}
         >
             <DropdownItemComponent
                 languages={availableLanguages}
