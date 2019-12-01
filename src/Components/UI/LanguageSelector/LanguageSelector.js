@@ -22,7 +22,9 @@ const DropdownItemComponent = ({
             onClick={() => onClick(item.code)}
             color="inherit"
         >
-            <FlagIcon code={item.icon} />
+            {item.icon &&
+                <FlagIcon code={item.icon} /> && '&nbsp'
+            }
             {item.label}
         </Box>
         );
@@ -30,12 +32,12 @@ const DropdownItemComponent = ({
 const LabelComponent = ({ languages, currentLocale, className }) => {
     const language = languages.find(item => item.code === currentLocale);
 
-    return (
-        <Box color="inherit" className={className} >
-            <FlagIcon className="flagIcon" code={language.icon} /> &nbsp;
-            {language.label}
-        </Box>
-    );
+    return <Box color="inherit" className={className} >
+        {language.icon &&
+            <FlagIcon className="flagIcon" code={language.icon} /> && '&nbsp'
+        }
+        {language.label}
+    </Box>;
 };
 
 const useStyles = makeStyles(theme => ({
