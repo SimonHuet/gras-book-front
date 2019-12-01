@@ -9,7 +9,7 @@ const mapStateToProps = state =>({
     fetchError: state.timeline.FetchError
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
     componentDidMount: () => {
         dispatch(fetchPosts());
 
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             postsFetchError(err))
         );
     }
-})
+});
 
 export default connectWithLifecycle(
     mapStateToProps,
