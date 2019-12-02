@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Switch, Route } from 'react-router';
+import { Router, Switch, Route } from 'react-router-dom';
 import Login from 'Components/Pages/Login';
 import { history } from 'Utils/History';
 import NetworkError from 'Components/Pages/Errors/NetworkError';

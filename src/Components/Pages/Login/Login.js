@@ -11,6 +11,8 @@ import {
     Paper,
     Typography
 } from '@material-ui/core';
+import AppIcon from 'Components/UI/AppIcon';
+import LanguageSelector from 'Components/UI/LanguageSelector';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,11 +31,6 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-    },
-    avatar: {
-        margin: theme.spacing(1),
-        width: '64px',
-        height: '64px',
     },
     copyright: {
         bottom: theme.spacing(100),
@@ -66,7 +63,7 @@ export default () => {
                         {t('auth.title')} 
                     </Typography>
                     
-                    <img className={classes.avatar} src={`${process.env.PUBLIC_URL}icon-512.png`} alt="gras-book-logo" />
+                    <AppIcon medium />
                     
                     <br/>
                     <Typography component="p">
@@ -76,6 +73,8 @@ export default () => {
                     <Button color="primary" className={classes.button} onClick={() => keycloak.login()}>
                         <Link >{t('auth.manager.redirect.placeholder')}</Link>
                     </Button>
+
+                    <LanguageSelector />
 
                     <Box className={classes.copyright} mt={5}>
                         <Copyright />
