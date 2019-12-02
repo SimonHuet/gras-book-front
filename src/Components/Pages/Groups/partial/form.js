@@ -3,32 +3,42 @@ import UserSelect from './select';
 
 export default () => {
   const group = {};
-  group.list = [];
-  group.name = 'default';
+  const List = [];
   const setUsers = value => {
-    group.list.push(value);
+    List.push(value);
+  };
+
+  const newGroups = formData => {
+    fetch('http://localhost:8888/groups/', {
+      method: 'post',
+      body: group,
+    })
+      .then(resp => {
+        return resp;
+      })
+      .then(data => {
+        const id = data.location.substring(data.location.indexof('/groups'));
+        console.log(id);
+      });
+    formData.preventDefault();
+  };
+  const onChange = val => {
+    group.name = val;
   };
 
   return (
-    <form>
+    <form onSubmit={newGroups}>
       Nom du Group :
-      <input type="text" name="name" />
+      <input
+        type="text"
+        pattern="^[a-zA-Z0-9]*$"
+        value={group.name}
+        onChange={onChange}
+        name="name"
+      />
       <input type="submit" value="Envoyer" />
       <div>
         <UserSelect SelectedValue={setUsers} />
-      </div>
-      <div>
-        <ul className="list-group">
-          {group !== {} && group.list.length > 0 ? (
-            group.list.map(user => (
-              <li key={user.id} className="list-group-item">
-                {user.firstName} {user.lastName}
-              </li>
-            ))
-          ) : (
-            <p>aucun utilisateur trouvé</p>
-          )}
-        </ul>
       </div>
     </form>
   );
