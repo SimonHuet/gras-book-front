@@ -10,7 +10,7 @@ import {
   Paper,
   Typography,
 } from '@material-ui/core';
-import * as partials from './partial';
+import Form from './partial';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,7 +48,7 @@ export default () => {
         <Typography component="h1" variant="h5">
           {t('auth.title')}
         </Typography>
-        <partials.form />
+        <Form />
 
         <br />
         <Typography component="p">{t('auth.infos')}</Typography>
