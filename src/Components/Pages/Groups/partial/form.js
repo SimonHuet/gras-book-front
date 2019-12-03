@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import {
+  Box,
+  Button,
+  CssBaseline,
+  Grid,
+  Link,
+  makeStyles,
+  Paper,
+  Typography,
+  TextField
+} from '@material-ui/core';
 import UserSelect from './select';
 
-export default () => {
+export default ({users, hasFetchError}) => {
   const group = {};
   const List = [];
   const setUsers = value => {
@@ -29,14 +40,14 @@ export default () => {
   return (
     <form onSubmit={newGroups}>
       Nom du Group :
-      <input
+      <TextField variant="outlined"
         type="text"
         pattern="^[a-zA-Z0-9]*$"
         value={group.name}
         onChange={onChange}
         name="name"
       />
-      <input type="submit" value="Envoyer" />
+      <Button type="submit" value="Envoyer" />
       <div>
         <UserSelect SelectedValue={setUsers} />
       </div>
