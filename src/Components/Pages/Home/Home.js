@@ -3,8 +3,8 @@ import Menu from 'Components/UI/Menu/Menu';
 
 export default () => {
 
-    return (
-        <div>Home page</div>
+    return <div>
+        <h1>Home page</h1>
         <Menu />
-    );
+    </div>;
 };

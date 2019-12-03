@@ -30,6 +30,27 @@ const useStyles = makeStyles({
   }
 });
 
+const menuTabs = className => [{
+  trans: 'menu.home',
+  icon: <HomeTwoToneIcon className={className} />
+},
+{
+  trans: 'menu.profile',
+  icon: <PersonOutlineTwoToneIcon className={className} />
+}, {
+  trans: 'menu.group',
+  icon: <GroupTwoToneIcon className={className} />
+}, {
+  trans: 'menu.notification',
+  icon: <NotificationsNoneTwoToneIcon className={className} />
+}, {
+  trans: 'menu.message',
+  icon: <ChatTwoToneIcon className={className} />
+}, {
+  trans: 'menu.settings',
+  icon: <SettingsTwoToneIcon className={className} />
+}];
+
 export default () => {
   const { t } = useTranslation('Menu');
   const classes = useStyles();
@@ -37,36 +58,14 @@ export default () => {
   return (
     <Paper className={classes.root}>
       <MenuList>
-        <MenuItem className={classes.item}>
-          <HomeTwoToneIcon className={classes.icon}>
-            <Typography variant="inherit">{t('menu.home')}</Typography>
-          </HomeTwoToneIcon>            
-        </MenuItem>
-        <MenuItem className={classes.item}>
-          <PersonOutlineTwoToneIcon className={classes.icon}>
-            <Typography variant="inherit">{t('menu.profile')}</Typography>
-          </PersonOutlineTwoToneIcon>            
-        </MenuItem>
-        <MenuItem className={classes.item}>
-          <GroupTwoToneIcon className={classes.icon}>
-            <Typography variant="inherit">{t('menu.group')}</Typography>
-          </GroupTwoToneIcon>            
-        </MenuItem>
-        <MenuItem className={classes.item}>
-          <NotificationsNoneTwoToneIcon className={classes.icon}>
-            <Typography variant="inherit">{t('menu.notification')}</Typography>
-          </NotificationsNoneTwoToneIcon>            
-        </MenuItem>
-        <MenuItem className={classes.item}>
-          <ChatTwoToneIcon className={classes.icon}>
-            <Typography variant="inherit">{t('menu.message')}</Typography>          
-          </ChatTwoToneIcon>
-        </MenuItem>
-        <MenuItem className={classes.item}>
-          <SettingsTwoToneIcon className={classes.icon}>
-            <Typography variant="inherit">{t('menu.settings')}</Typography>
-          </SettingsTwoToneIcon>
-        </MenuItem>
+        {menuTabs(classes.icon).map(tab =>
+          <MenuItem key={tab.trans} className={classes.item} >
+            {tab.icon}
+            <Typography variant="inherit">
+              {t(tab.trans)}
+            </Typography>
+          </MenuItem>)
+        }
       </MenuList>
     </Paper>
   );
