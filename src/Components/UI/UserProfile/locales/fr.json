@@ -1,0 +1,8 @@
+{
+    "user" : {
+        "error" : {
+            "title" : "Erreur",
+            "message": "Erreur dans la récupération de l'utilisateur"
+        }
+    }
+}

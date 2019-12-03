@@ -1,0 +1,8 @@
+{
+    "user" : {
+        "error" : {
+            "title" : "Error",
+            "message": "Error when fetching user"
+        }
+    }
+}
