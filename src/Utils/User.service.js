@@ -1,6 +1,7 @@
 /* export const userService = {
     login,
-    logout
+    logout,
+    getConnectedUserID
 };
 
 function login(username, password) {
