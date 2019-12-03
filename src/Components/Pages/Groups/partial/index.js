@@ -19,7 +19,9 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-export default connectWithLifecycle(
+// erreur
+/* export default connectWithLifecycle(
     mapStateToProps,
     mapDispatchToProps,
-)(form);
+)(form); */
+export default form;
