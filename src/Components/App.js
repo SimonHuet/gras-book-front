@@ -5,7 +5,7 @@ import Keycloak from 'keycloak-js';
 import { KeycloakProvider } from 'react-keycloak';
 
 const keycloak = new Keycloak();
-const initKeycloakProviderConfig = { onLoad: 'check-sso' };
+const initKeycloakProviderConfig = { onLoad: 'login-required' };
 const App = () => <KeycloakProvider keycloak={keycloak} initConfig={initKeycloakProviderConfig}>
   <SuspenseWrapper>
     <Router />
