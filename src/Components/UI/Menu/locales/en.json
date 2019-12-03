@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "menu": {
         "status": "How are you today ?",
         "home": "Home",
@@ -9,13 +10,20 @@
         "message": "Messages",
 =======
     "navigation": {
+=======
+    "menu": {
+>>>>>>> feat: add menu and icons (wip)
         "status": "How are you today ?",
         "home": "Home",
         "profile": "My profile",
-        "groups": "My groups",
+        "group": "My groups",
         "notification": "Notifications",
+<<<<<<< HEAD
         "messages": "Messages",
 >>>>>>> feat: add menu component
+=======
+        "message": "Messages",
+>>>>>>> feat: add menu and icons (wip)
         "settings": "Settings"
     }
 }
