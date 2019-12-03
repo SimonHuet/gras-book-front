@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import {
-  Box,
-  Button,
-  CssBaseline,
-  Grid,
-  Link,
-  makeStyles,
-  Paper,
-  Typography,
-  TextField,
-  List,
-  ListItem,
-  ListItemText
-} from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@material-ui/core';
 
 const SelectUser = props => {
-  const [usersList, setUsersList] = useState([]);
-  useEffect(() => {
+  const { values } = { ...props };
+  const [usersList, setUsersList] = useState(values);
+  /* useEffect(() => {
     fetch('http://localhost:8888/users/?limit=50')
       .then(response => response.json())
       .then(data => {
@@ -26,12 +14,13 @@ const SelectUser = props => {
       .catch(error => {
         // console.error(error);
       });
-  }, []);
+  }, []); */
   return (
     <List>
       {usersList.length > 0 ? (
         usersList.map(user => (
-          <ListItem button
+          <ListItem
+            button
             key={user.id}
             type="button"
             onClick={() => props.SelectedValue(user)}
