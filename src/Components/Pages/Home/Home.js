@@ -1,3 +1,10 @@
 import React from 'react';
+import Menu from 'Components/UI/Menu/Menu';
 
-export default () => <div>Home page</div>; 
+export default () => {
+
+    return (
+        <div>Home page</div>
+        <Menu />
+    );
+};
