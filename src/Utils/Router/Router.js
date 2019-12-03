@@ -9,6 +9,7 @@ import NetworkError from 'Components/Pages/Errors/NetworkError';
 import Profile from 'Components/Pages/Profile';
 import ProfileEdit from 'Components/Pages/Profile/Edit';
 import Navbar from 'Components/UI/Navbar';
+import Home from 'Components/Pages/Home';
 
 export default () => (
   <Router history={history}>
