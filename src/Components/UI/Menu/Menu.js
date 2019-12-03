@@ -63,6 +63,27 @@ const menuTabs = className => [{
   url: (`${process.env.REACT_APP_ROUTE}`, '/Settings')
 }];
 
+const menuTabs = className => [{
+  trans: 'menu.home',
+  icon: <HomeTwoToneIcon className={className} />
+},
+{
+  trans: 'menu.profile',
+  icon: <PersonOutlineTwoToneIcon className={className} />
+}, {
+  trans: 'menu.group',
+  icon: <GroupTwoToneIcon className={className} />
+}, {
+  trans: 'menu.notification',
+  icon: <NotificationsNoneTwoToneIcon className={className} />
+}, {
+  trans: 'menu.message',
+  icon: <ChatTwoToneIcon className={className} />
+}, {
+  trans: 'menu.settings',
+  icon: <SettingsTwoToneIcon className={className} />
+}];
+
 export default () => {
   const { t } = useTranslation('Menu');
   const classes = useStyles();
