@@ -17,10 +17,16 @@ import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles( theme => ({
   root: {
+<<<<<<< HEAD
     width: 400,
     height: 400,
     backgroundColor: '#00acc1',
     marginLeft: theme.spacing(3),
+=======
+    width: 440,
+    height: 390,
+    backgroundColor: '#00acc1',
+>>>>>>> WIP: add new component for menu
   },
   item: {
     height: 46,
