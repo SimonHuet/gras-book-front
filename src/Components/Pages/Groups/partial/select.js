@@ -1,5 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
+import {
+  Box,
+  Button,
+  CssBaseline,
+  Grid,
+  Link,
+  makeStyles,
+  Paper,
+  Typography,
+  TextField,
+  List,
+  ListItem,
+  ListItemText
+} from '@material-ui/core';
+
 const SelectUser = props => {
   const [usersList, setUsersList] = useState([]);
   useEffect(() => {
@@ -12,24 +27,23 @@ const SelectUser = props => {
         // console.error(error);
       });
   }, []);
-
   return (
-    <div className="list-group">
+    <List>
       {usersList.length > 0 ? (
         usersList.map(user => (
-          <button
+          <ListItem button
             key={user.id}
             type="button"
             onClick={() => props.SelectedValue(user)}
             className="list-group-item list-group-item-action"
           >
-            {user.firstName} {user.lastName}
-          </button>
+            <ListItemText primary={`${user.firstName} ${user.lastName}`} />
+          </ListItem>
         ))
       ) : (
         <p>aucun utilisateur trouvé</p>
       )}
-    </div>
+    </List>
   );
 };
 
