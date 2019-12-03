@@ -69,7 +69,6 @@ export default () => {
 
   return (
     <Paper className={classes.root}>
-<<<<<<< HEAD
       <ProfileMenu />
         <MenuList>
           {menuTabs(classes.icon).map(tab =>
@@ -83,34 +82,6 @@ export default () => {
           </Link>
           )}
         </MenuList>        
-=======
-      <MenuList>
-        <MenuItem>
-          <img src={homeIcon} alt='home' />
-            <Typography variant="inherit">{t('menu.home')}</Typography>
-        </MenuItem>
-        <MenuItem>
-          <img src={profileIcon} alt='profile' />
-            <Typography variant="inherit">{t('menu.profile')}</Typography>
-        </MenuItem>
-        <MenuItem>
-          <img src={groupIcon} alt='group' />
-            <Typography variant="inherit">{t('menu.group')}</Typography>
-        </MenuItem>
-        <MenuItem>
-          <img src={notificationIcon} alt='notif' />
-            <Typography variant="inherit">{t('menu.notification')}</Typography>
-        </MenuItem>
-        <MenuItem>
-          <img src={messagesIcon} alt='msg' />
-            <Typography variant="inherit">{t('menu.message')}</Typography>
-        </MenuItem>
-        <MenuItem>
-          <img src={settingsIcon} alt='settings' />
-            <Typography variant="inherit">{t('menu.settings')}</Typography>
-        </MenuItem>
-      </MenuList>
->>>>>>> feat: add menu and icons (wip)
     </Paper>
   );
 };
