@@ -1,6 +1,7 @@
 export const userService = {
     login,
-    logout
+    logout,
+    getConnectedUserID
 };
 
 function login(username, password) {
@@ -39,4 +40,10 @@ function handleResponse(response) {
 
         return data;
     });
+}
+
+function getConnectedUserID() 
+{
+    // TODO
+    return 1;
 }
