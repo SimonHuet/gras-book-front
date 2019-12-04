@@ -13,11 +13,12 @@ const useStyles = makeStyles(theme => ({
   bigAvatar: {
     width: 85,
     height: 85,
-    ImageAvatars: 'url(https://bucket-kfc.s3.fr-par.scw.cloud/profileImage/AvatarTest.jpg)'
+    ImageAvatars: 'url(https://bucket-kfc.s3.fr-par.scw.cloud/profileImage/AvatarTest.jpg)',
+    alt: 'url()'
   },
 }));
 
-export default function ImageAvatars() {
+export default () => {
   const classes = useStyles();
 
   return (
@@ -25,4 +26,4 @@ export default function ImageAvatars() {
       <Avatar alt="Y. Durand" className={classes.bigAvatar} />
     </div>
   );
-}
+};
