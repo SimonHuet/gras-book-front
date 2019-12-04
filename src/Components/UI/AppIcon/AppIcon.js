@@ -2,12 +2,12 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-    avatar_small: {
+    avatarSmall: {
         margin: theme.spacing(1),
         width: '32px',
         height: '32px',
     },
-    avatar_medium: {
+    avatarMedium: {
         margin: theme.spacing(1),
         width: '64px',
         height: '64px',
@@ -15,9 +15,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const getSizeClass = (classes, { small, medium }) => {
-    if(small) return classes.avatar_small;
+    if(small) return classes.avatarSmall;
     
-    if(medium) return classes.avatar_medium;
+    if(medium) return classes.avatarMedium;
     
     return null;
 };
