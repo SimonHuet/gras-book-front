@@ -1,8 +1,8 @@
-import { postsConstants } from 'Redux/_constants/posts';
+import { usersConstants } from 'Redux/_constants/users';
 
 export const INITIAL_STATE = {
-    posts: [],
-    isFetchingPosts: false,
+    users: [],
+    isFetchingusers: false,
     fetchError: false,
 };
 
@@ -11,21 +11,21 @@ export const reducer = (oldSate = INITIAL_STATE, action = {}) => {
     action = action || {};
 
     switch (action.type) {
-        case postsConstants.FETCH_POSTS:
+        case usersConstants.FETCH_USERS:
             return {
                 ...oldSate,
-                isFetchingPosts: true,
+                isFetchingUsers: true,
             };
-        case postsConstants.POSTS_FETCHED:
+        case usersConstants.USERS_FETCHED:
             return {
                 ...oldSate,
-                posts: action.posts,
-                isFetchingPosts: false,
+                users: action.users,
+                isFetchingUsers: false,
             };
-        case postsConstants.POSTS_FETCH_ERROR:
+        case usersConstants.USERS_FETCH_ERROR:
             return {
                 ...oldSate,
-                isFetchingPosts: false,
+                isFetchingUsers: false,
                 fetchError: action.error,
             };
         default:
