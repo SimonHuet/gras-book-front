@@ -1,4 +1,4 @@
-export const userService = {
+/* export const userService = {
     login,
     logout
 };
@@ -40,3 +40,4 @@ function handleResponse(response) {
         return data;
     });
 }
+*/

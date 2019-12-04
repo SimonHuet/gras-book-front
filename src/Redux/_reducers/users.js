@@ -9,7 +9,7 @@ export const INITIAL_STATE = {
 export const reducer = (oldSate = INITIAL_STATE, action = {}) => {
     oldSate = oldSate || INITIAL_STATE;
     action = action || {};
-
+    
     switch (action.type) {
         case usersConstants.FETCH_USERS:
             return {

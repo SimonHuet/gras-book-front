@@ -37,7 +37,8 @@ const Copyright = () => (
   </Typography>
 );
 
-export default () => {
+export default (users) => {
+  console.log(users);
   const { t } = useTranslation('Groups');
   const classes = useStyles();
 

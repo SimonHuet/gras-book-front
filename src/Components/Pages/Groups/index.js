@@ -13,8 +13,8 @@ const mapDispatchToProps = dispatch => ({
   componentDidMount: () => {
     dispatch(fetchUsers());
 
-    fetchBackend('http://localhost:8888', 'users/')
-      .then(data => dispatch(usersFetched(data)))
+    fetchBackend('http://192.168.0.239:8889', 'users/')
+      .then(data => dispatch(usersFetched(data.body)))
       .catch(err => dispatch(usersFetchError(err)));
   },
 });

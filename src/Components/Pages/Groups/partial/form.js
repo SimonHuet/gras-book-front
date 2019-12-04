@@ -2,9 +2,10 @@ import React from 'react';
 import { Button, TextField } from '@material-ui/core';
 import UserSelect from './select';
 
-export default ({ users }) => {
+export default ( users, fetchError ) => {
   const group = {};
   const List = [];
+  console.log(users);
   const setUsers = value => {
     List.push(value);
   };
