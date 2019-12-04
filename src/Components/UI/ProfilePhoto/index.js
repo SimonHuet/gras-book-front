@@ -35,12 +35,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     componentDidMount: () => {
-        dispatch(fetchUsers());
+        dispatch(fetchUser());
 
-        fetchBackend(process.env.REACT_APP_USER_API, "routes")
-        .then(data => dispatch(usersFetched(data)))
+        fetchBackend(`${process.env.REACT_APP_USER_API  }?{uuid}`, "routes")
+        .then(data => dispatch(userFetched(data)))
         .catch(err => dispatch(
-            usersFetchError(err)));
+            userFetchError(err)));
     }
 });
 
