@@ -4,17 +4,8 @@ import { List, ListItem, ListItemText } from '@material-ui/core';
 
 const SelectUser = props => {
   const { values } = { ...props };
-  const [usersList, setUsersList] = useState(values);
-  /* useEffect(() => {
-    fetch('http://localhost:8888/users/?limit=50')
-      .then(response => response.json())
-      .then(data => {
-        setUsersList(data);
-      })
-      .catch(error => {
-        // console.error(error);
-      });
-  }, []); */
+  const usersList = values.users;
+
   return (
     <List>
       {usersList.length > 0 ? (
@@ -30,7 +21,7 @@ const SelectUser = props => {
           </ListItem>
         ))
       ) : (
-        <p>aucun utilisateur trouvé</p>
+        <ListItemText primary="aucun utilisateur trouvé" />
       )}
     </List>
   );

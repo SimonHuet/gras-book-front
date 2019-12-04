@@ -1,16 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  Box,
-  Button,
-  CssBaseline,
-  Grid,
-  Link,
-  makeStyles,
-  Paper,
-  Typography,
-} from '@material-ui/core';
-import Form from './partial';
+import { Box, CssBaseline, Grid, makeStyles, Typography } from '@material-ui/core';
+import Form from './form';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,8 +28,7 @@ const Copyright = () => (
   </Typography>
 );
 
-export default (users) => {
-  console.log(users);
+export default users => {
   const { t } = useTranslation('Groups');
   const classes = useStyles();
 
@@ -47,12 +37,11 @@ export default (users) => {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          {t('auth.title')}
+          {t('groupForm.title')}
         </Typography>
         <Form />
 
         <br />
-        <Typography component="p">{t('auth.infos')}</Typography>
 
         <Box className={classes.copyright} mt={5}>
           <Copyright />
