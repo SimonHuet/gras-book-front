@@ -14,9 +14,9 @@ i18n
         backend: {
             backendOptions :
             {
-                loadPath: `locales/{{ns}}/{{lng}}.json`,
+                loadPath: `/locales/{{ns}}/{{lng}}.json`,
             },
-            loadPath: `locales/{{ns}}/{{lng}}.json`
+            loadPath: `/locales/{{ns}}/{{lng}}.json`
         }, 
         interpolation: {
             escapeValue: false,
