@@ -13,8 +13,13 @@ const mapDispatchToProps = dispatch => ({
     componentDidMount: () => {
         dispatch(fetchUser());
 
+<<<<<<< HEAD
         fetchBackend(`${process.env.REACT_APP_USER_API  }`, "users/")
         .then(data => dispatch(userFetched(data.body)))
+=======
+        fetchBackend(`${process.env.REACT_APP_USER_API  }?{uuid}`, "routes")
+        .then(data => dispatch(userFetched(data)))
+>>>>>>> feat: add users reducers
         .catch(err => dispatch(
             userFetchError(err)));
     }
