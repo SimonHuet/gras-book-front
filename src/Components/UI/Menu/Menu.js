@@ -33,9 +33,8 @@ const useStyles = makeStyles( theme => ({
 const useStyles = makeStyles( theme => ({
   root: {
     width: 400,
-    height: 420,
+    height: 400,
     backgroundColor: '#00acc1',
-    paddingLeft: theme.spacing(3),
     marginLeft: theme.spacing(3),
 >>>>>>> feat: menu on the home page
   },
@@ -46,10 +45,13 @@ const useStyles = makeStyles( theme => ({
   icon: {
     height: 36,
     width: 36,
+<<<<<<< HEAD
   },
   link: {
     underline: 'none',
     color: 'black'
+=======
+>>>>>>> feat: (WIP) User reducers
   }
 }));
 <<<<<<< HEAD

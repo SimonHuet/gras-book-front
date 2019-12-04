@@ -22,6 +22,4 @@ const useStyles = makeStyles(theme => ({
 
 export default ({user}) => {
   const classes = useStyles();
-    </div>
   );
-};
