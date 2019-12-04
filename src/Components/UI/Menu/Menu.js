@@ -12,23 +12,25 @@ import GroupTwoToneIcon from '@material-ui/icons/GroupTwoTone';
 import NotificationsNoneTwoToneIcon from '@material-ui/icons/NotificationsNoneTwoTone';
 import ChatTwoToneIcon from '@material-ui/icons/ChatTwoTone';
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
+import ProfileMenu from 'Components/UI/ProfileMenu/ProfileMenu';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( theme => ({
   root: {
-    width: 440,
-    height: 390,
+    width: 400,
+    height: 420,
     backgroundColor: '#00acc1',
+    paddingLeft: theme.spacing(3),
+    marginLeft: theme.spacing(3),
   },
   item: {
     height: 46,
-    border: 0,
-    borderTop: 1,
+    border: 1,
   },
   icon: {
     height: 40,
     width: 40,
   }
-});
+}));
 
 const menuTabs = className => [{
   trans: 'menu.home',
@@ -57,16 +59,17 @@ export default () => {
 
   return (
     <Paper className={classes.root}>
-      <MenuList>
-        {menuTabs(classes.icon).map(tab =>
-          <MenuItem key={tab.trans} className={classes.item} >
-            {tab.icon}
-            <Typography variant="inherit">
-              {t(tab.trans)}
-            </Typography>
-          </MenuItem>)
-        }
-      </MenuList>
+      <ProfileMenu />
+        <MenuList>
+          {menuTabs(classes.icon).map(tab =>
+            <MenuItem key={tab.trans} className={classes.item} >
+              {tab.icon}
+              <Typography variant="inherit" fontWeight="fontWeightBold" m={1}>
+                {t(tab.trans)}
+              </Typography>
+            </MenuItem>)
+          }
+        </MenuList>
     </Paper>
   );
 };
