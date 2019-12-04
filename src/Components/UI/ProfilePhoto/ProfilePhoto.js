@@ -22,11 +22,6 @@ const useStyles = makeStyles(theme => ({
 
 export default ({user}) => {
   const classes = useStyles();
-  console.log("Profile photo: ",{user});
-
-  return (
-    <div className={classes.root}>
-      <Avatar alt="User picture" src={user.pictureUrl} className={classes.bigAvatar} />
     </div>
   );
 };
