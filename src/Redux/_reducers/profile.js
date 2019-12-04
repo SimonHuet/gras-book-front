@@ -20,13 +20,13 @@ export const reducer = (oldSate = INITIAL_STATE, action = {}) => {
             return {
                 ...oldSate,
                 user: action.user,
-                isFetchingUser: false,
+                    isFetchingUser: false,
             };
         case profileConstants.USER_FETCH_ERROR:
             return {
                 ...oldSate,
                 isFetchingUser: false,
-                fetchError: action.error,
+                    fetchError: action.error,
             };
         default:
             return oldSate;

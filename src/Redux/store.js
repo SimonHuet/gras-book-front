@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { reducer } from 'Redux/_reducers';
@@ -7,9 +8,7 @@ import { history } from 'Utils/History';
 const logger = Reducer => (state, action) => {
   const newState = Reducer(state, action);
 
-  // eslint-disable-next-line no-console
   console.log('=== NEW STATE ===');
-  // eslint-disable-next-line no-console
   console.log(newState);
 
   return newState;
