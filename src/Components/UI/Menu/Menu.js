@@ -17,9 +17,8 @@ import ProfileMenu from 'Components/UI/ProfileMenu/ProfileMenu';
 const useStyles = makeStyles( theme => ({
   root: {
     width: 400,
-    height: 420,
+    height: 400,
     backgroundColor: '#00acc1',
-    paddingLeft: theme.spacing(3),
     marginLeft: theme.spacing(3),
   },
   item: {
@@ -27,8 +26,8 @@ const useStyles = makeStyles( theme => ({
     border: 1,
   },
   icon: {
-    height: 40,
-    width: 40,
+    height: 36,
+    width: 36,
   }
 }));
 
