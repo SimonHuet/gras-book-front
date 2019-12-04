@@ -1,8 +1,8 @@
-import { usersConstants } from 'Redux/_constants/users';
+import { profileConstants } from 'Redux/_constants/profile';
 
 export const INITIAL_STATE = {
-    users: [],
-    isFetchingusers: false,
+    user: {},
+    isFetchingUser: false,
     fetchError: false,
 };
 
@@ -11,21 +11,21 @@ export const reducer = (oldSate = INITIAL_STATE, action = {}) => {
     action = action || {};
 
     switch (action.type) {
-        case usersConstants.FETCH_USERS:
+        case profileConstants.FETCH_USER:
             return {
                 ...oldSate,
-                isFetchingUsers: true,
+                isFetchingUser: true,
             };
-        case usersConstants.USERS_FETCHED:
+        case profileConstants.USER_FETCHED:
             return {
                 ...oldSate,
-                users: action.users,
-                isFetchingUsers: false,
+                user: action.user,
+                isFetchingUser: false,
             };
-        case usersConstants.USERS_FETCH_ERROR:
+        case profileConstants.USER_FETCH_ERROR:
             return {
                 ...oldSate,
-                isFetchingUsers: false,
+                isFetchingUser: false,
                 fetchError: action.error,
             };
         default:
