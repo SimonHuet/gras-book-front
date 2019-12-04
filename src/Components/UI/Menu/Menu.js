@@ -13,6 +13,7 @@ import NotificationsNoneTwoToneIcon from '@material-ui/icons/NotificationsNoneTw
 import ChatTwoToneIcon from '@material-ui/icons/ChatTwoTone';
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
 import ProfileMenu from 'Components/UI/ProfileMenu/ProfileMenu';
+<<<<<<< HEAD
 import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles( theme => ({
@@ -27,6 +28,16 @@ const useStyles = makeStyles( theme => ({
     height: 390,
     backgroundColor: '#00acc1',
 >>>>>>> WIP: add new component for menu
+=======
+
+const useStyles = makeStyles( theme => ({
+  root: {
+    width: 400,
+    height: 420,
+    backgroundColor: '#00acc1',
+    paddingLeft: theme.spacing(3),
+    marginLeft: theme.spacing(3),
+>>>>>>> feat: menu on the home page
   },
   item: {
     height: 46,
@@ -41,6 +52,7 @@ const useStyles = makeStyles( theme => ({
     color: 'black'
   }
 }));
+<<<<<<< HEAD
 
 const menuTabs = className => [{
   trans: 'menu.home',
@@ -89,6 +101,8 @@ const menuTabs = className => [{
   trans: 'menu.settings',
   icon: <SettingsTwoToneIcon className={className} />
 }];
+=======
+>>>>>>> feat: menu on the home page
 
 const menuTabs = className => [{
   trans: 'menu.home',
@@ -120,16 +134,26 @@ export default () => {
       <ProfileMenu />
         <MenuList>
           {menuTabs(classes.icon).map(tab =>
+<<<<<<< HEAD
           <Link href={tab.url} className={classes.link}>
             <MenuItem key={tab.trans} className={classes.item}>
+=======
+            <MenuItem key={tab.trans} className={classes.item} >
+>>>>>>> feat: menu on the home page
               {tab.icon}
               <Typography variant="inherit" fontWeight="fontWeightBold" m={1}>
                 {t(tab.trans)}
               </Typography>
+<<<<<<< HEAD
             </MenuItem>
           </Link>
           )}
         </MenuList>        
+=======
+            </MenuItem>)
+          }
+        </MenuList>
+>>>>>>> feat: menu on the home page
     </Paper>
   );
 };

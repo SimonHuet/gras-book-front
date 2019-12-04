@@ -24,11 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-<<<<<<< HEAD
 export default ({ user, fetchError }) => {
-=======
-export default ({ users, fetchError }) => {
->>>>>>> WIP: add dynamic route to get user name and avatar
   const { t } = useTranslation('UserStatus');
   const classes = useStyles();   
 
