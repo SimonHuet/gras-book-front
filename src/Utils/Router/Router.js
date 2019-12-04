@@ -10,7 +10,7 @@ export default () => <Router history={history}>
         <Switch>
             <Route exact path="/" component={ Login } />
             <Route exact path="/network-error" component={ NetworkError } />
-            <Route exact path="/profile/{id}" component={ Profile } />
+            <Route exact path="/profile/:id" component={ Profile } />
         </Switch>
     </main>
 </Router>;

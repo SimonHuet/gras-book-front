@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { reducer as postReducer } from './posts';
-import { reducer as profileReducer } from './profile';
+import { reducer as post } from './posts';
+import { reducer as profile } from './profile';
 
 export const reducer = combineReducers({
-    postReducer,
-    profileReducer
+    post,
+    profile
 });
