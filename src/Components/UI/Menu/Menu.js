@@ -12,9 +12,13 @@ import GroupTwoToneIcon from '@material-ui/icons/GroupTwoTone';
 import NotificationsNoneTwoToneIcon from '@material-ui/icons/NotificationsNoneTwoTone';
 import ChatTwoToneIcon from '@material-ui/icons/ChatTwoTone';
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
+<<<<<<< HEAD
 import ProfileMenu from 'Components/UI/ProfileMenu/ProfileMenu';
 <<<<<<< HEAD
 import Link from '@material-ui/core/Link';
+=======
+import ProfileMenu from 'Components/UI/Menu/ProfileMenu/ProfileMenu';
+>>>>>>> refactor: moving menu component in right place
 
 const useStyles = makeStyles( theme => ({
   root: {

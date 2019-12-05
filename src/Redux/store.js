@@ -15,6 +15,8 @@ const logger = reducer => (state, action) => {
 
   return newState;
 };
+console.log(reducer);
+const rootReducer = connectRouter(history)(reducer);
 
 const rootReducer = connectRouter(history)(reducer);
 
