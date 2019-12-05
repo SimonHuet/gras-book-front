@@ -19,18 +19,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default ({users}) => {
+export default ({user}) => {
   const classes = useStyles();
-  console.log(localStorage);
-  const {token} = localStorage;
-  localStorage.getItem(token);
-  console.log(`token :${token}`);
+  console.log("Profile photo: ",{user});
 
   return (
     <div className={classes.root}>
-      {users.users.map(user => (
-        <Avatar alt="User picture" src={user.pictureURL} className={classes.bigAvatar} />
-      ))}
+      <Avatar alt="User picture" src={user.pictureURL} className={classes.bigAvatar} />
     </div>
   );
 };

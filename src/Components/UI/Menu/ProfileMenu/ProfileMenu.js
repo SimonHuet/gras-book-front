@@ -23,9 +23,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default ({ users, fetchError }) => {
+export default ({ user, fetchError }) => {
   const { t } = useTranslation('UserStatus');
-  const classes = useStyles();   
+  const classes = useStyles();
+  console.log("profile menu : ",{user});
 
   return (
     <div className={classes.root}>
@@ -35,14 +36,10 @@ export default ({ users, fetchError }) => {
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>   
-              {users.users.map(user => (
-                <Typography variant="h3" className={classes.userName} 
-                key={user.id}
-                >
+              <Grid item xs>
+                <Typography variant="h3" className={classes.userName}>
                     <b>{`${user.firstName} ${user.lastName}`}</b>
-                </Typography>   
-              ))}
+                </Typography>
                 <form className={classes.root} noValidate autoComplete="off">
                     <TextField id="standard-basic" label={t('profileView.status')} />
                     <Button>
