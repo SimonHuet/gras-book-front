@@ -1,5 +1,11 @@
 {
   "groupForm": {
-    "title": "Créer un groupe :"
+    "title": "Créer un groupe :",
+    "name": "Nom du Groupe :",
+    "noRecordFound": "Aucun utilisateur trouvé dans la base de données"
+  },
+  "groupList": {
+    "title": "Voici vos groupes actuelles :",
+    "noRecordFound":"Aucun group trouvé dans la base de données"
   }
 }

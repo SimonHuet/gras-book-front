@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { List, ListItem, ListItemText } from '@material-ui/core';
 
 const SelectUser = props => {
   const { values } = { ...props };
   const usersList = values.users;
+  
+  const { t } = useTranslation('GroupForm');
 
   return (
     <List>
@@ -21,7 +24,7 @@ const SelectUser = props => {
           </ListItem>
         ))
       ) : (
-        <ListItemText primary="aucun utilisateur trouvé" />
+        <ListItemText primary={t('groupForm.noRecordFound')} />
       )}
     </List>
   );
