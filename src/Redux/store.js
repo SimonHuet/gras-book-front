@@ -13,13 +13,7 @@ const logger = Reducer => (state, action) => {
 
   return newState;
 };
+console.log(reducer);
+const rootReducer = connectRouter(history)(reducer);
 
-const rootReducer = connectRouter(history)(reducer); 
-
-export const store = createStore(
-    process.env.NODE_ENV === 'development' ? logger(rootReducer): rootReducer,
-    compose(
-        applyMiddleware(thunkMiddleware),
-        applyMiddleware(routerMiddleware)
-    )
-);
+export const store = createStore(logger(reducer), reducer());

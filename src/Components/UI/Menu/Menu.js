@@ -12,7 +12,7 @@ import GroupTwoToneIcon from '@material-ui/icons/GroupTwoTone';
 import NotificationsNoneTwoToneIcon from '@material-ui/icons/NotificationsNoneTwoTone';
 import ChatTwoToneIcon from '@material-ui/icons/ChatTwoTone';
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
-import ProfileMenu from 'Components/UI/ProfileMenu/ProfileMenu';
+import ProfileMenu from 'Components/UI/Menu/ProfileMenu/ProfileMenu';
 
 const useStyles = makeStyles( theme => ({
   root: {
