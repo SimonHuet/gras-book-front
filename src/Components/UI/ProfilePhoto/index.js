@@ -6,15 +6,15 @@ import ProfilePhoto from './ProfilePhoto';
 
 const mapStateToProps = state => ({
     users: state.users,
-    fetchError: state.timeline.FetchError
+    fetchError: state.FetchError
 });
 
 const mapDispatchToProps = dispatch => ({
     componentDidMount: () => {
         dispatch(fetchUser());
 
-        fetchBackend(`${process.env.REACT_APP_USER_API  }?{uuid}`, "routes")
-        .then(data => dispatch(userFetched(data)))
+        fetchBackend(`${process.env.REACT_APP_USER_API  }`, "users/")
+        .then(data => dispatch(userFetched(data.body)))
         .catch(err => dispatch(
             userFetchError(err)));
     }
