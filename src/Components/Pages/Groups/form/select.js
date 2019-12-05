@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemText,Avatar, ListItemAvatar } from '@material-ui/core';
 
 const SelectUser = props => {
   const { values } = { ...props };
@@ -20,6 +20,10 @@ const SelectUser = props => {
             onClick={() => props.SelectedValue(user)}
             className="list-group-item list-group-item-action"
           >
+            
+        <ListItemAvatar>
+          <Avatar alt="User picture" src={user.pictureURL} />
+        </ListItemAvatar>
             <ListItemText primary={`${user.firstName} ${user.lastName}`} />
           </ListItem>
         ))

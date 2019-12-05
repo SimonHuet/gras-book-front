@@ -2,7 +2,8 @@ import React from 'react';
 import { Button, TextField } from '@material-ui/core';
 
 import { useTranslation } from 'react-i18next';
-import { Box, CssBaseline, Grid, makeStyles, Typography,List, ListItem, ListItemText } from '@material-ui/core';
+import { Box, CssBaseline, Grid, makeStyles, Typography,List, ListItem, ListItemText,IconButton,ListItemSecondaryAction, ListItemAvatar, Avatar } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 import fetchBackend from 'Utils/fetchBackend';
 
 export default ({ users, fetchError }) => {
@@ -45,20 +46,28 @@ export default ({ users, fetchError }) => {
         <Typography component="h1" variant="h5">
           {t('group.title')}
         </Typography>
-
+      <List>
         {users.users.length > 0 ? (
         users.users.map(user => (
           <ListItem
             key={user.id}
             className="list-user-item list-user-item-action"
           >
+        <ListItemAvatar>
+          <Avatar alt="User picture" src={user.pictureURL} />
+        </ListItemAvatar>
             <ListItemText primary={`${user.firstName} ${user.lastName}`} />
+            <ListItemSecondaryAction>
+                    <IconButton edge="end" aria-label="delete">
+                      <DeleteIcon />
+                    </IconButton>
+                  </ListItemSecondaryAction>
             </ListItem>
             ))
         ) : (
             <ListItemText primary={t('group.userList.noRecordFound')} />
         )}
-
+      </List>
         <Box className={classes.copyright} mt={5}>
           <Copyright />
         </Box>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box, CssBaseline, Grid, makeStyles, Typography, List, ListItem, ListItemText } from '@material-ui/core';
+import { Box, CssBaseline, Grid, makeStyles, Typography,List, ListItem, ListItemText,IconButton,ListItemSecondaryAction } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom'
 import { redirectTo } from '@reach/router';
 import { Redirect } from 'react-router/cjs/react-router.min';
@@ -56,6 +57,12 @@ export default ({ groups }) => {
             className="list-group-item list-group-item-action"
           >
             <ListItemText primary={`${group.name}`} />
+            
+            <ListItemSecondaryAction>
+              <IconButton edge="end" aria-label="delete">
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
           </ListItem>
         ))
       ) : (
