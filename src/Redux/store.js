@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import { createStore /* , compose, applyMiddleware */} from 'redux';
 // import thunkMiddleware from 'redux-thunk';
