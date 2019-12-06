@@ -2,6 +2,7 @@ import React from 'react';
 import Timeline from './Timeline';
 
 const posts = [{
+    uuid: 'f3bc8365-32e6-4332-827c-008a034e5785',
     content: 'Salut salut voilà un big burger !',
     mediaUrl: 'https://source.unsplash.com/random',
     createdAt: '2019-03-11T12:34:56.000Z',
@@ -21,6 +22,7 @@ const posts = [{
     }],
 },
 {
+    uuid: '13adc6ac-1e30-4786-9300-a832be4f13b7',
     content: 'J\'ai adoré ce burger , vous en pensez quoi ?' ,
     mediaUrl: 'https://source.unsplash.com/random',
     createdAt: '2019-03-11T12:38:56.000Z',
