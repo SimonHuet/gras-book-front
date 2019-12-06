@@ -26,7 +26,7 @@ export default ({user}) => {
 
   return (
     <div className={classes.root}>
-      <Avatar alt="User picture" src={user.pictureURL} className={classes.bigAvatar} />
+      <Avatar alt="User picture" src='' className={classes.bigAvatar} />
     </div>
   );
 };
