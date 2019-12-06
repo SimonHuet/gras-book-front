@@ -26,7 +26,6 @@ const useStyles = makeStyles(theme => ({
 export default ({ user, fetchError }) => {
   const { t } = useTranslation('UserStatus');
   const classes = useStyles();
-  console.log("profile menu : ",{user});
 
   return (
     <div className={classes.root}>
@@ -38,7 +37,7 @@ export default ({ user, fetchError }) => {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography variant="h3" className={classes.userName}>
-                    <b>{`${user.firstName} ${user.lastName}`}</b>
+                    Yann Durand
                 </Typography>
                 <form className={classes.root} noValidate autoComplete="off">
                     <TextField id="standard-basic" label={t('profileView.status')} />

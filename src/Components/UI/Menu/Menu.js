@@ -12,6 +12,7 @@ import GroupTwoToneIcon from '@material-ui/icons/GroupTwoTone';
 import NotificationsNoneTwoToneIcon from '@material-ui/icons/NotificationsNoneTwoTone';
 import ChatTwoToneIcon from '@material-ui/icons/ChatTwoTone';
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
+import Link from '@material-ui/core/Link';
 import ProfileMenu from 'Components/UI/Menu/ProfileMenu/ProfileMenu';
 
 const useStyles = makeStyles( theme => ({
@@ -28,28 +29,38 @@ const useStyles = makeStyles( theme => ({
   icon: {
     height: 36,
     width: 36,
+  },
+  link: {
+    underline: 'none',
+    color: 'black'
   }
 }));
 
 const menuTabs = className => [{
   trans: 'menu.home',
-  icon: <HomeTwoToneIcon className={className} />
+  icon: <HomeTwoToneIcon className={className} />,
+  url: (`${process.env.REACT_APP_ROUTE}`, '/Home')
 },
 {
   trans: 'menu.profile',
-  icon: <PersonOutlineTwoToneIcon className={className} />
+  icon: <PersonOutlineTwoToneIcon className={className} />,
+  url: (`${process.env.REACT_APP_ROUTE}`, '/Profile')
 }, {
   trans: 'menu.group',
-  icon: <GroupTwoToneIcon className={className} />
+  icon: <GroupTwoToneIcon className={className} />,
+  url: (`${process.env.REACT_APP_ROUTE}`, '/Groups')
 }, {
   trans: 'menu.notification',
-  icon: <NotificationsNoneTwoToneIcon className={className} />
+  icon: <NotificationsNoneTwoToneIcon className={className} />,
+  url: (`${process.env.REACT_APP_ROUTE}`, '/Notification')
 }, {
   trans: 'menu.message',
-  icon: <ChatTwoToneIcon className={className} />
+  icon: <ChatTwoToneIcon className={className} />,
+  url: (`${process.env.REACT_APP_ROUTE}`, '/messages')
 }, {
   trans: 'menu.settings',
-  icon: <SettingsTwoToneIcon className={className} />
+  icon: <SettingsTwoToneIcon className={className} />,
+  url: (`${process.env.REACT_APP_ROUTE}`, '/Settings')
 }];
 
 export default () => {
@@ -61,14 +72,16 @@ export default () => {
       <ProfileMenu />
         <MenuList>
           {menuTabs(classes.icon).map(tab =>
-            <MenuItem key={tab.trans} className={classes.item} >
+          <Link href={tab.url} className={classes.link}>
+            <MenuItem key={tab.trans} className={classes.item}>
               {tab.icon}
               <Typography variant="inherit" fontWeight="fontWeightBold" m={1}>
                 {t(tab.trans)}
               </Typography>
-            </MenuItem>)
-          }
-        </MenuList>
+            </MenuItem>
+          </Link>
+          )}
+        </MenuList>        
     </Paper>
   );
 };
