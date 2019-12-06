@@ -5,8 +5,9 @@ import { reducer } from 'Redux/_reducers';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { history } from 'Utils/History';
 
-const logger = Reducer => (state, action) => {
-  const newState = Reducer(state, action);
+// eslint-disable-next-line no-shadow
+const logger = reducer => (state, action) => {
+  const newState = reducer(state, action);
 
   console.log('=== NEW STATE ===');
   console.log(newState);

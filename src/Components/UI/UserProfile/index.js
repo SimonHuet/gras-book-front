@@ -8,11 +8,11 @@ const mapStateToProps = state =>({
     userFetchError: state.profile.fetchError
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
     componentDidMount: () => {
         dispatch(fetchUser);
 
-        fetchBackend(process.env.REACT_APP_USER_API, `users/${ownProps.id}`)
+        fetchBackend(process.env.REACT_APP_USER_API, `users/1`)
         .then( user => dispatch(userFetched(user)))
         .catch(err => dispatch(userFetchError(err)));
     }

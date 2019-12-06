@@ -5,7 +5,7 @@ export default (baseUrl, path, options = {}) => {
         ...getHeaders(options.headers),
     };
 
-    fetch(`${baseUrl}/${path}`, options)
+    return fetch(`${baseUrl}/${path}`, options)
     .then(response =>
         response.status < 400
             ? resolveResponseAndBody(response)
