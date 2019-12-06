@@ -26,7 +26,6 @@ const useStyles = makeStyles(theme => ({
 export default ({ user, fetchError }) => {
   const { t } = useTranslation('UserStatus');
   const classes = useStyles();
-  console.log("profile menu : ",{user});
 
   return (
     <div className={classes.root}>
