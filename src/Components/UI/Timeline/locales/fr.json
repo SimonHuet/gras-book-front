@@ -1,3 +1,8 @@
 {
-    "title": "Ma timeline"
+    "posts": {
+        "errors": {
+            "title": "Erreur",
+            "message" : "Echec du chargement du post"
+        }
+    }
 }

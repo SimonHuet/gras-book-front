@@ -1,0 +1,9 @@
+{
+    "days": {
+        "error":{
+            "title": "Erreur:",
+            "message": "Cette liste ne devrait pas être vide."
+        }
+    },
+    "title": "Ma timeline"
+}

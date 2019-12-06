@@ -7,7 +7,7 @@ export default ({ user, userFetchError }) => {
     const { t } = useTranslation('UserProfile');
 
     return <Box>
-        <Grid xs="12">
+        <Grid item xs={12}>
             <Grid>
             {userFetchError &&
                 <Error

@@ -1,3 +1,9 @@
 {
-    "title": "My profile"
+    "title": "My profile",
+    "posts": {
+        "errors": {
+            "title": "Error",
+            "message" : "Post loading failed"
+        }
+    }
 }
