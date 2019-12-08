@@ -21,6 +21,7 @@ export default () => (
                 <Route exact path="/Groups/:id" component={GroupMessagingRoom} />
                 <Route exact path="/Groups/:id/edit" component={GroupForm} />
                 <Route exact path="/profile/:id" component={Profile} />
+                <Route exact path="/profile" component={Profile} />
             </Switch>
         </main>
     </Router>

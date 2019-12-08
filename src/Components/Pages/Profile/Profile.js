@@ -1,7 +1,7 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { Grid, Typography, Container, withStyles } from '@material-ui/core';
-import UserProfile from 'Components/UI/UserProfile';
+import UserProfile from 'Components/UI/UserProfile/UserProfile';
 import TimelineLoading from 'Components/UI/TimelineLoading/TimelineLoading';
 import TimelineLoaded from 'Components/UI/TimelineLoaded/TimelineLoaded';
 import TimelineEmpty from 'Components/UI/TimelineEmpty/TimelineEmpty';
@@ -13,12 +13,11 @@ const styles ={
     }
 };
 
-const ProfileView = ({posts, isFetchingPosts, postsFetchError, classes, t}) => 
+const ProfileView = ({posts, isFetchingPosts, postsFetchError, user, userFetchError, classes, t}) => 
      <Container maxWidth="md" className={classes.container} >
-
         <Grid item xs={12}>
             <Typography component="h1" variant='h5'>{t('title.profile')}</Typography>
-            <UserProfile />
+            <UserProfile user={user} userFetchError={userFetchError} />
 
             <Typography component="h1" variant='h5'>{t('title.timeline')}</Typography>
             {postsFetchError && 

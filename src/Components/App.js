@@ -15,7 +15,6 @@ const keycloakUserToUser = ({email, sub, family_name, given_name}) => ({
   "lastName": family_name,
   "firstName": given_name,
   "login": "aaaaaaaaaaaaaa",
-  "password": "aaaaaaaaaaaaaa",
   "pictureUrl": "https://www.gravatar.com/avatar/axccdcv?d=retro"
 });
 

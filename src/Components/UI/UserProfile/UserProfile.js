@@ -26,15 +26,15 @@ const styles = {
 const UserProfileView = ({ user, userFetchError, classes, t }) =>
     <Box>
         <Grid item xs={12}>
-             <Grid>   
-                 {(userFetchError || Object.keys(user).length === 0) &&
+            <Grid>
+                 {(userFetchError || !user) &&
                     <Error
                         title={t('user.error.title')}
                         message={t('user.error.message')}
                     />}
             </Grid>
 
-            {!userFetchError && Object.keys(user).length>0 && <Grid className={classes.list}>
+            {!userFetchError && user && <Grid className={classes.list}>
 
                 <UserShortDescription user={user} />
                 <ListItem className={classes.secondaryInfos}>

@@ -4,27 +4,38 @@ import { fetchUserPosts, userPostsFetched, userPostsFetchError, userFetched, use
 import { userService } from 'Utils/User.service';
 import Profile from './Profile';
 
-const mapStateToProps = state =>({
+const mapStateToProps = state => ({
     posts: state.profile.userPosts,
     isFetchingPosts: state.profile.isFetchingUserPosts,
     postsFetchError: state.profile.userPost,
+    user: state.profile.user,
+    userFetchError: state.profile.userFetchError,
+    isFetchingUser: state.profile.isFetchingUser,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
     componentDidMount: () => {
         dispatch(fetchUserPosts());
+        console.log(ownProps.match.params.id);
+        const id = ownProps.match.params.id ? ownProps.match.params.id : localStorage.userId;
 
-        fetchBackend(process.env.REACT_APP_POSTS_API, `posts/1`)
-        .then(posts => dispatch(userPostsFetched(posts)))
-        .catch( err  => dispatch(
-            userPostsFetchError(err))
-        );
+        fetchBackend(process.env.REACT_APP_POSTS_API, `users/${id}/posts`)
+            .then(posts => dispatch(userPostsFetched(posts)))
+            .catch(err => dispatch(
+                userPostsFetchError(err))
+            );
 
         dispatch(fetchUser());
 
-        userService.getConnectedUser()
-        .then(user => dispatch(userFetched(user[0])))
-        .catch(err => dispatch(userFetchError(err)));
+        if (!ownProps.match.params.id) {
+            userService.getConnectedUser()
+                .then(user => dispatch(userFetched(user)))
+                .catch(err => dispatch(userFetchError(err)));
+        }else{
+            fetchBackend(process.env.REACT_APP_USER_API, `users/${id}`)
+            .then(user => dispatch(userFetched(user)))
+            .catch(err => dispatch(userFetchError(err)));
+        }
     }
 });
 
