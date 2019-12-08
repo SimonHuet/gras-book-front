@@ -1,36 +1,33 @@
 export default (baseUrl, path, options = {}) => {
+  options = {
+    ...options,
+    ...getHeaders(options.headers),
+  };
 
-    options = {
-        ...options,
-        ...getHeaders(options.headers),
-    };
-
-    fetch(`${baseUrl}/${path}`, options)
+  return fetch(`${baseUrl}/${path}`, options)
     .then(response =>
-        response.status < 400
-            ? resolveResponseAndBody(response)
-            : Promise.reject(response)
+      response.status < 400 ? resolveResponseAndBody(response) : Promise.reject(response)
     )
     .then(([response, body]) => ({
-        status: response.status,
-        headers: response.headers,
-        body,
+      status: response.status,
+      headers: response.headers,
+      body,
     }));
 };
 
-
 const getHeaders = optionsHeaders => {
-    const token = localStorage.user;
+  const token = localStorage.user;
 
-    return {
-        headers: {
-            ...optionsHeaders,
-            ...(token ? { Authorization: `Bearer ${token}` } : null),
-        },
-    };
+  return {
+    headers: {
+      ...optionsHeaders,
+      ...(token ? { Authorization: `Bearer ${token}` } : null),
+    },
+  };
 };
 
-const resolveResponseAndBody = response =>
-     response.headers.get('Content-Type') === 'application/json'
-        ? Promise.all([response, response.json()])
-        : Promise.all([response, response.text()]);
+const resolveResponseAndBody = response => Promise.all([response, response.json()]);
+/*
+  response.headers.get('Content-Type') === 'application/json'
+    ? Promise.all([response, response.json()])
+    : Promise.all([response, response.text()]); */
