@@ -1,0 +1,20 @@
+{
+  "groupForm": {
+    "title": "Create a Groupe :",
+    "name": "Group's name :",
+    "GroupName": "Enter a name",
+    "confirmed": "Confirmed",
+    "noRecordFound": "No users found in the database"
+  },
+  "groupList": {
+    "title": "You will find here your groups :",
+    "noRecordFound": "No groups found in the database",
+    "CreateButton": "Create a group"
+  },
+  "group": {
+    "userList": {
+      "noRecordFound": "No users found in the database"
+    },
+    "UpdateButton": "Update this group"
+  }
+}

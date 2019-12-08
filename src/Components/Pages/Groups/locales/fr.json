@@ -1,0 +1,19 @@
+{
+  "groupForm": {
+    "title": "Créer un groupe :",
+    "name": "Nom du Groupe :",
+    "GroupName": "Entrez un nom",
+    "confirmed": "Confirmer"
+  },
+  "groupList": {
+    "title": "Voici vos groupes actuelles :",
+    "noRecordFound": "Aucun group trouvé dans la base de données",
+    "CreateButton": "Créer un groupe"
+  },
+  "group": {
+    "userList": {
+      "noRecordFound": "Aucun utilisateur trouvé dans la base de données"
+    },
+    "UpdateButton": "Modifier ce groupe"
+  }
+}
