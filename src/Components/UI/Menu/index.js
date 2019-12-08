@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     componentDidMount: () => {
         dispatch(fetchUser());
-        fetchBackend(`${process.env.REACT_APP_USER_API  }`, "/users/98ff2b02-0471-4803-abc5-97ab86ea8659")
+        fetchBackend('http://localhost:8888', 'users/2ab170a3-e9b0-4ac6-ae21-700600e63f28')
         .then(data => dispatch(userFetched(data.body)))
         .catch(err => dispatch(userFetchError(err)));
     }
