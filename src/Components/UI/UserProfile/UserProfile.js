@@ -16,38 +16,47 @@ const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
+    list: {
+        display: 'flex',
+        flexDirection:'row'
+
+    },
 };
 
-const UserProfileView = ({ user, userFetchError, classes, t }) => {
-
-
-    return <Box>
+const UserProfileView = ({ user, userFetchError, classes, t }) =>
+    <Box>
         <Grid item xs={12}>
-            <Grid>
-                {userFetchError &&
+             <Grid>   
+                 {(userFetchError || Object.keys(user).length === 0) &&
                     <Error
                         title={t('user.error.title')}
                         message={t('user.error.message')}
                     />}
             </Grid>
 
+            {!userFetchError && Object.keys(user).length>0 && <Grid className={classes.list}>
 
-            {!userFetchError && user && <Grid>
-                <ListItem>
-                    <UserShortDescription user={user} />
-                    
+                <UserShortDescription user={user} />
+                <ListItem className={classes.secondaryInfos}>
                     <ListItemText primary={<div className={classes.truncate}>
-                            {user && <span>
-                                {user.email}
-                            </span>}
+                        {user && <span>
+                            {t('user.email')} : {user.email}
+                        </span>}
                     </div>}
+                        secondary={
+                            <>
+                                <>{t('user.birthDate')} {new Date(user.birthDate).toLocaleDateString()}</>
+                                <br/>
+                                <>{t('user.creationDate')} {new Date(user.createdAt).toLocaleDateString()}</>
+                            </>
+                        }
                     />
 
                 </ListItem>
-                </Grid>}
+            </Grid>
+            }
         </Grid>
     </Box>;
-};
 
 const UserProfile = withStyles(styles)(UserProfileView);
 

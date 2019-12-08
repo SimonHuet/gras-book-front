@@ -12,9 +12,9 @@ const mapDispatchToProps = dispatch => ({
     componentDidMount: () => {
         dispatch(fetchUser);
 
-        fetchBackend(process.env.REACT_APP_USER_API, `users/1`)
+        /* fetchBackend(process.env.REACT_APP_USER_API, `users`)
         .then( user => dispatch(userFetched(user)))
-        .catch(err => dispatch(userFetchError(err)));
+        .catch(err => dispatch(userFetchError(err))); */
     }
 });
 

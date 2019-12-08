@@ -109,6 +109,5 @@ const posts = [{
 }];
 
 export default { title: 'TimelineLoaded' };
-export const basic = () => <TimelineLoaded posts={posts.slice(0, -1)} max={2} />;
-export const fullyLoaded = () => <TimelineLoaded posts={posts} />;
+export const basic = () => <TimelineLoaded posts={posts} />;
 export const empty = () => <TimelineLoaded />;

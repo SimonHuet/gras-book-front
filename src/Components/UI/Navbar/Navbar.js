@@ -15,8 +15,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { useTranslation } from 'react-i18next';
 
-import { userService } from 'Utils/User.service';
 import LanguageSelector from 'Components/UI/LanguageSelector';
+import { useKeycloak } from 'react-keycloak';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -41,6 +41,7 @@ export default () => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const keycloak = useKeycloak();
 
     const { t } = useTranslation('Navbar');
 
@@ -53,7 +54,7 @@ export default () => {
     };
 
     const handleLogout = () => {
-        userService.logout();
+        keycloak[0].logout();
     };
 
     return (

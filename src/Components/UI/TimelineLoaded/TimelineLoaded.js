@@ -27,33 +27,26 @@ const getDayString = date =>
 
 const TimelineLoadedView = ({
     posts = [],
-    handleLoadMore,
-    max,
     classes,
 }) => {
     const { days, postsByDay } = groupByDay(posts);
-    const {t} = useTranslation('TimelineLoaded');
+    const { t } = useTranslation('TimelineLoaded');
 
     if (days.length === 0) {
         return (
-            <Error color="error" title={t('days.error.title')} message={t('days.error.message')}/>
+            <Error color="error" title={t('days.error.title')} message={t('days.error.message')} />
         );
     }
     return <div className={classes.root}>
-            {days.map(day => (
-                <div key={day} className={classes.day}>
-                    <Typography variant="subtitle2" gutterBottom>
-                        {getDayString(day)}
-                    </Typography>
-                    <Timeline posts={postsByDay[day]} />
-                </div>
-            ))}
-            {posts.length > max && (
-                <Button variant="contained" onClick={handleLoadMore}>
-                    Load more posts
-                </Button>
-            )}
-        </div>;
+        {days.map(day => (
+            <div key={day} className={classes.day}>
+                <Typography variant="subtitle2" gutterBottom>
+                    {getDayString(day)}
+                </Typography>
+                <Timeline posts={postsByDay[day]} />
+            </div>
+        ))}
+    </div>;
 };
 
 const TimelineLoaded = withStyles(styles)(TimelineLoadedView);

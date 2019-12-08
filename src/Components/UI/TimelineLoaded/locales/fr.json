@@ -5,4 +5,7 @@
             "message": "Cette liste ne devrait pas être vide."
         }
     },
+    "posts" :{
+        "load": "Voir plus de posts"
+    }
 }

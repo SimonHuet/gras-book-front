@@ -1,44 +1,23 @@
-/* export const userService = {
-    login,
-    logout,
-    getConnectedUserID
+import fetchBackend from "./fetchBackend";
+
+export const userService = {
+    getConnectedUser,
+    createUser
 };
 
-function login(username, password) {
-    const requestOptions = {
+function getConnectedUser() 
+{
+    return fetchBackend(process.env.REACT_APP_USER_API, `users?limit=50&page=0&keyCloackUuid=${localStorage.keycloakUUID}`).then(data => JSON.parse(data.body));
+}
+
+function createUser(formatedData) {
+    return fetchBackend(process.env.REACT_APP_USER_API, `users`,{
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-                username, 
-                password
-            })
-    };
-
-    return fetch(`${process.env.REACT_APP_KEYCLOAK}`, requestOptions)
-        .then(handleResponse)
-        .then(user => {
-            localStorage.setItem('user', JSON.stringify(user));
-            
-            return user;
-        });
+        body: JSON.stringify(formatedData)
+    // eslint-disable-next-line no-console
+    }).catch(err => console.error(err));
 }
-
-function logout() {
-    localStorage.removeItem('user');
-}
-
-function handleResponse(response) {
-    return response.text().then(data => {
-        if (!response.ok) {
-            if (response.status === 401) {
-                logout();
-            }
-
-            const error = (data && data.message) || response.statusText;
-            return Promise.reject(error);
-        }
-
-        return data;
-    });
-}
-*/

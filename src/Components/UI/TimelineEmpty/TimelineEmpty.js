@@ -4,7 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import InfoIcon from '@material-ui/icons/Info';
 import { withStyles } from '@material-ui/core/styles';
-import { useTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 const styles = {
     root: {
@@ -21,24 +21,21 @@ const styles = {
     },
 };
 
-const TimelineEmptyView = ({ classes }) => {
-    const {t} = useTranslation('TimelineEmpty');
-    
-    return <Card className={classes.root}>
+const TimelineEmptyView = ({ classes, t }) =>
+    <Card className={classes.root}>
         <CardContent className={classes.content}>
             <InfoIcon color="primary" className={classes.icon} />
             <div>
-                <Typography variant="subheading" gutterBottom>
+                <Typography variant="subtitle1" gutterBottom>
                     {t('message')}
                 </Typography>
-                <Typography variant="subheading">
+                <Typography variant="subtitle2" color="textSecondary">
                     {t('addMessage')}
                 </Typography>
             </div>
         </CardContent>
     </Card>;
-};
 
 const TimelineEmpty = withStyles(styles)(TimelineEmptyView);
 
-export default TimelineEmpty;
+export default withTranslation('TimelineEmpty')(TimelineEmpty);

@@ -8,11 +8,11 @@ import Post from './Post';
 const styles = {
     root: {
         width: 600,
-        padding:10
+        padding: 10
     },
 };
 
-const TimelineView = ({ posts = [],postsFetchError, classes }) => {
+const TimelineView = ({ posts = [], postsFetchError, classes }) => {
     const { t } = useTranslation('Timeline');
     return (
         <Box>
@@ -24,10 +24,10 @@ const TimelineView = ({ posts = [],postsFetchError, classes }) => {
                     />
                 }
                 <List>
-                    {posts.map(post => (<>
-                        <Post key={post.id} post={post}  />
+                    {posts.map(post => (<span key={post.id}>
+                        <Post post={post} />
                         <Divider />
-                        </>
+                    </span>
                     ))}
                 </List>
             </Card>
