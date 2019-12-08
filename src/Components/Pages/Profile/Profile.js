@@ -15,8 +15,10 @@ export default ({posts, isFetchingPosts, postsFetchError}) => {
 
     return <Box>
         <Grid item xs={12}>
-            <Typography component="h1" variant='h5'>{t('title')}</Typography>
+            <Typography component="h1" variant='h5'>{t('title.profile')}</Typography>
+            <UserProfile />
 
+            <Typography component="h1" variant='h5'>{t('title.timeline')}</Typography>
             {postsFetchError && 
                 <Error title={t('posts.error.title')} message={t('posts.error.message')}
             />};
@@ -32,7 +34,7 @@ export default ({posts, isFetchingPosts, postsFetchError}) => {
                         handleLoadMore={handleLoadMore}
                     />
             )};
-            <UserProfile />
+            
 
         
         </Grid>

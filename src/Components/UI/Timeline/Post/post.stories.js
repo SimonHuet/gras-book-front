@@ -7,17 +7,17 @@ const post = {
     mediaUrl: 'https://source.unsplash.com/random',
     createdAt: '2019-03-11T12:34:56.000Z',
     user: {
-        first_name: 'Michel', 
-        last_name: 'François',
-        photo: 'https://source.unsplash.com/random'
+        firstName: 'Michel', 
+        lastName: 'François',
+        pictureUrl: 'https://source.unsplash.com/random'
     },
     comments: [{
         content: 'Wow, ce burger est incroyable',
         createdAt: '2019-03-11T15:34:56.000Z',
         user: {
-            first_name: 'Frederic', 
-            last_name: 'Alain',
-            photo: 'https://source.unsplash.com/random'
+            firstName: 'Frederic', 
+            lastName: 'Alain',
+            pictureUrl: 'https://source.unsplash.com/random'
         }
     }],
 };

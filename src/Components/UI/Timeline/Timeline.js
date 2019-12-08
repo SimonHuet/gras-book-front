@@ -25,7 +25,7 @@ const TimelineView = ({ posts = [],postsFetchError, classes }) => {
                 }
                 <List>
                     {posts.map(post => (<>
-                        <Post key={post.uuid} post={post}  />
+                        <Post key={post.id} post={post}  />
                         <Divider />
                         </>
                     ))}

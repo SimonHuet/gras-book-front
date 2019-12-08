@@ -35,7 +35,7 @@ const PostView = ({ post, classes }) => (<>
                 <div className={classes.truncate}>
                     <strong>
                         {post.user ? <span>
-                            {post.user.first_name} {post.user.last_name}
+                            {post.user.lastName} {post.user.lastName}
                         </span> : 'Anonymous'}
                     </strong>{' '}
                     {post.content}

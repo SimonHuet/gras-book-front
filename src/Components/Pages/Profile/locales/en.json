@@ -1,5 +1,8 @@
 {
-    "title": "My profile",
+    "title":{
+        "profile": "My profile",
+        "timeline" : "My timeline"
+    },
     "posts": {
         "errors": {
             "title": "Error",

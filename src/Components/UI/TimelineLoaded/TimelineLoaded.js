@@ -40,8 +40,6 @@ const TimelineLoadedView = ({
         );
     }
     return <div className={classes.root}>
-
-        <h1>{t('title')}</h1>
             {days.map(day => (
                 <div key={day} className={classes.day}>
                     <Typography variant="subtitle2" gutterBottom>

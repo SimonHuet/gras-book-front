@@ -12,13 +12,13 @@ const styles = {
 
 const AvatarView = ({ user, classes }) => (
     <>
-    {user && user.photo &&
+    {user && user.pictureUrl &&
         <MuiAvatar
             className={classes.avatar}
-            src={user.photo}
+            src={user.pictureUrl}
         />
     }
-    {!(user && user.photo) &&
+    {!(user && user.pictureUrl) &&
         <MuiAvatar
             className={classes.avatar}
         > 
@@ -26,7 +26,6 @@ const AvatarView = ({ user, classes }) => (
         </MuiAvatar>
     }
     
-
     </>
 );
 

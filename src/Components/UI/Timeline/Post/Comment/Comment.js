@@ -27,7 +27,7 @@ export const CommentView = ({ comment, classes }) => <ListItem className={classe
             <div className={classes.truncate}>
                 <strong>
                     {comment.user ? <span>
-                        {comment.user.first_name} {comment.user.last_name}
+                        {comment.user.firstName} {comment.user.lastName}
                     </span> : 'Anonymous'}
                 </strong>{' '}
                 {comment.content}
