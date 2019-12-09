@@ -1,0 +1,11 @@
+{
+    "user" : {
+        "error" : {
+            "title" : "Error",
+            "message": "Error when fetching user"
+        },
+        "birthDate": "Born on ",
+        "creationDate": "Account created at ",
+        "email": "Email"
+    }
+}

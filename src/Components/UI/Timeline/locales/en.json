@@ -1,0 +1,8 @@
+{
+    "posts": {
+        "errors": {
+            "title": "Error",
+            "message" : "Post loading failed"
+        }
+    }
+}

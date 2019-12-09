@@ -1,0 +1,12 @@
+{
+    "title":{
+        "profile": "My profile",
+        "timeline" : "My timeline"
+    },
+    "posts": {
+        "errors": {
+            "title": "Error",
+            "message" : "Post loading failed"
+        }
+    }
+}

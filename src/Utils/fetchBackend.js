@@ -16,7 +16,7 @@ export default (baseUrl, path, options = {}) => {
 };
 
 const getHeaders = optionsHeaders => {
-  const token = localStorage.user;
+    const token = localStorage.authToken; 
 
   return {
     headers: {
@@ -27,7 +27,3 @@ const getHeaders = optionsHeaders => {
 };
 
 const resolveResponseAndBody = response => Promise.all([response, response.json()]);
-/*
-  response.headers.get('Content-Type') === 'application/json'
-    ? Promise.all([response, response.json()])
-    : Promise.all([response, response.text()]); */

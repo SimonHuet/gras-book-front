@@ -1,0 +1,11 @@
+{
+    "user" : {
+        "error" : {
+            "title" : "Erreur",
+            "message": "Erreur dans la récupération de l'utilisateur"
+        },
+        "birthDate": "Né(e) le ",
+        "creationDate": "Compte crée le ",
+        "email": "Courriel"
+    }
+}

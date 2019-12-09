@@ -6,7 +6,7 @@ import Home from './Home';
 
 const mapStateToProps = state =>({
     posts: state.timeline.posts,
-    fetchError: state.timeline.FetchError
+    fetchError: state.timeline.fetchError
 });
 
 const mapDispatchToProps = dispatch => ({
