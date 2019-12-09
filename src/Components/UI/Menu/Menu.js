@@ -13,6 +13,7 @@ import NotificationsNoneTwoToneIcon from '@material-ui/icons/NotificationsNoneTw
 import ChatTwoToneIcon from '@material-ui/icons/ChatTwoTone';
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
 import ProfileMenu from 'Components/UI/ProfileMenu/ProfileMenu';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles( theme => ({
   root: {

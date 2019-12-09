@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "menu": {
         "status": "How are you today ?",
         "home": "Home",
@@ -9,31 +6,6 @@
         "group": "My groups",
         "notification": "Notifications",
         "message": "Messages",
-=======
-    "navigation": {
-=======
-    "menu": {
->>>>>>> feat: add menu and icons (wip)
-        "status": "How are you today ?",
-        "home": "Home",
-        "profile": "My profile",
-        "group": "My groups",
-        "notification": "Notifications",
-<<<<<<< HEAD
-        "messages": "Messages",
->>>>>>> feat: add menu component
-=======
-        "message": "Messages",
->>>>>>> feat: add menu and icons (wip)
-=======
-    "navigation": {
-        "status": "How are you today ?",
-        "home": "Home",
-        "profile": "My profile",
-        "groups": "My groups",
-        "notification": "Notifications",
-        "messages": "Messages",
->>>>>>> feat: add menu component
         "settings": "Settings"
     }
 }
