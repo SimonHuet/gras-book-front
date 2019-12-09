@@ -3,7 +3,7 @@ import '../../i18n';
 
 describe('THIS TEST IS USLESS',() =>{
     it('should 1 =1 return true',() =>
-    expect(1).toEquals(1));
+    expect(1).toEqual(1));
 });
 
 /* describe('groupByDay', () => {
