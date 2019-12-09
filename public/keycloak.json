@@ -5,4 +5,8 @@
   "resource": "grasbook-front",
   "public-client": true,
   "confidential-port": 0
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 577ebd35abdc9258fa1edbbc428df7708605e8f5

@@ -2,22 +2,38 @@ import React from 'react';
 import Timeline from './Timeline';
 
 const posts = [{
+<<<<<<< HEAD
     id: 'f3bc8365-32e6-4332-827c-008a034e5785',
+=======
+    uuid: 'f3bc8365-32e6-4332-827c-008a034e5785',
+>>>>>>> 577ebd35abdc9258fa1edbbc428df7708605e8f5
     content: 'Salut salut voilà un big burger !',
     mediaUrl: 'https://source.unsplash.com/random',
     createdAt: '2019-03-11T12:34:56.000Z',
     user: {
+<<<<<<< HEAD
         firstName: 'Michel', 
         lastName: 'François',
         pictureUrl: 'https://source.unsplash.com/random'
+=======
+        first_name: 'Michel', 
+        last_name: 'François',
+        photo: 'https://source.unsplash.com/random'
+>>>>>>> 577ebd35abdc9258fa1edbbc428df7708605e8f5
     },
     comments: [{
         content: 'Wow, ce burger est incroyable',
         createdAt: '2019-03-11T15:34:56.000Z',
         user: {
+<<<<<<< HEAD
             firstName: 'Frederic', 
             lastName: 'Alain',
             pictureUrl: 'https://source.unsplash.com/random'
+=======
+            first_name: 'Frederic', 
+            last_name: 'Alain',
+            photo: 'https://source.unsplash.com/random'
+>>>>>>> 577ebd35abdc9258fa1edbbc428df7708605e8f5
         }
     }],
 },
