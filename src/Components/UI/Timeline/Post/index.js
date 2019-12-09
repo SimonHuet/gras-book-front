@@ -8,26 +8,28 @@ const PostView = ({ post }) => {
     const [fullPost, setFullPost] = useState(false);
 
     useEffect(() => {
-        fetchBackend(process.env.REACT_APP_USER_API, `users/${post.userUuid}`, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            method: 'GET'
-        })
-            .then(async ({ body }) => ({ ...post, user: body }))
-            .then(async (pst) => fetchBackend(process.env.REACT_APP_POST_API, `posts/${post.userUuid}/comments`, {
+        if (post && !(post.user && post.comment)) {
+           fetchBackend(process.env.REACT_APP_USER_API, `users/${post.userUuid}`, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
                 method: 'GET'
             })
-                .then(async ({ body }) => ({ ...pst, comments: body }))
-                .then(async (p) => setFullPost(p))
-                .catch(err => console.error(err))
-            ).catch(err => console.error(err));
-}, [post]);
+                .then(async ({ body }) => ({ ...post, user: body }))
+                .then(async (pst) => fetchBackend(process.env.REACT_APP_POST_API, `posts/${post.userUuid}/comments`, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    method: 'GET'
+                })
+                    .then(async ({ body }) => ({ ...pst, comments: body }))
+                    .then(async (p) => setFullPost(p))
+                    .catch(err => console.error(err))
+                ).catch(err => console.error(err));
+        }
+    }, [post]);
 
     return <Post post={fullPost} />;
 };

@@ -8,6 +8,7 @@ const CommentView = ({ comment }) => {
     const [fullComment, setFullComment] = useState(false);
 
     useEffect(() => {
+        if(comment && !comment.user){
         fetchBackend(process.env.REACT_APP_USER_API, `users/${comment.userUuid}`, {
             headers: {
                 'Accept': 'application/json',
@@ -18,6 +19,7 @@ const CommentView = ({ comment }) => {
             .then(async ({ body }) => ({ ...comment, user: body }))
             .then(async (pst) => setFullComment(pst))
             .catch(err => console.error(err));
+    }
 }, [comment]);
 
     return <Comment comment={fullComment} />;

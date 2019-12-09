@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { Grid, Typography, Container, withStyles } from '@material-ui/core';
 import UserProfile from 'Components/UI/UserProfile/UserProfile';
