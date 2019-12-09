@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable no-console */
 import { connectWithLifecycle } from 'react-lifecycle-component';
 import fetchBackend from 'Utils/fetchBackend';
@@ -45,8 +44,3 @@ export default connectWithLifecycle(
     mapStateToProps,
     mapDispatchToProps,
 )(Profile);
-=======
-import Profile from './Profile';
-
-export default Profile;
->>>>>>> de1e291b8b510140d31db06456698debf57ecb1f

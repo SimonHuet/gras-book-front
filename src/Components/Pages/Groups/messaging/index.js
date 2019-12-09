@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   groupUsersFetched,
   fetchGroupUsers,
@@ -38,8 +37,3 @@ const mapDispatchToProps = (Dispatch, ownProps) => ({
   },
 });
 export default connectWithLifecycle(mapStateToProps, mapDispatchToProps)(Messaging);
-=======
-import messaging from './messaging';
-
-export default messaging;
->>>>>>> de1e291b8b510140d31db06456698debf57ecb1f
