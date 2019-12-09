@@ -15,7 +15,7 @@ const logger = reducer => (state, action) => {
 
   return newState;
 };
-
+console.log(reducer);
 const rootReducer = connectRouter(history)(reducer);
 
 export const store = createStore(logger(rootReducer), rootReducer());
