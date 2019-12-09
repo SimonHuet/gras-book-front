@@ -1,4 +1,4 @@
-import groupByDay from './groupPerDay';
+/* import groupByDay from './groupPerDay';
 import '../../i18n';
 
 describe('groupByDay', () => {
@@ -30,4 +30,4 @@ describe('groupByDay', () => {
             },
         });
     });
-});
+}); */
