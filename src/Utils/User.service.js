@@ -29,9 +29,3 @@ function createUser(formatedData) {
         // eslint-disable-next-line no-console
     }).catch(err => console.error(err));
 }
-
-function getConnectedUserID() 
-{
-    // TODO
-    return 1;
-}
