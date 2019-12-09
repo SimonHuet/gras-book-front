@@ -1,4 +1,5 @@
 import groupByDay from './groupPerDay';
+import '../../i18n';
 
 describe('groupByDay', () => {
     it('should aggregate posts by day', () => {
