@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { connectWithLifecycle } from 'react-lifecycle-component';
 import fetchBackend from 'Utils/fetchBackend';
 import { fetchUserPosts, userPostsFetched, userPostsFetchError, userFetched, userFetchError, fetchUser } from 'Redux/_actions/profile';

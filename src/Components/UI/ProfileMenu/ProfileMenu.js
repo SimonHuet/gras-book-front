@@ -36,15 +36,14 @@ export default ({ user, fetchError }) => {
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>   
-              {users.map(user => (
+              <Grid item xs>
                 <Typography variant="h3" className={classes.userName} 
                 key={user.id}
                 >
                     <b>{`${user.firstName} ${user.lastName}`}</b>
                 </Typography>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField id="standard-basic" label={t('profileView.status')} />
+                    <TextField id="standard-basic" label={t('profileView.status')}  />
                     <Button>
                         <CreateIcon className={classes.icon} />
                     </Button>
