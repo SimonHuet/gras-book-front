@@ -9,6 +9,7 @@ import NetworkError from 'Components/Pages/Errors/NetworkError';
 import Profile from 'Components/Pages/Profile';
 import ProfileEdit from 'Components/Pages/Profile/Edit';
 import Navbar from 'Components/UI/Navbar';
+import Home from 'Components/Pages/Home';
 
 export default () => (
   <Router history={history}>
@@ -24,6 +25,7 @@ export default () => (
         <Route exact path="/profile/:id" component={Profile} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/profileEdit" component={ProfileEdit} />
+        <Route exact path="/Home" component={Home} />
       </Switch>
     </main>
   </Router>
