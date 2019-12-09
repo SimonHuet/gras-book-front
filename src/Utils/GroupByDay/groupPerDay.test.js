@@ -1,7 +1,12 @@
-/* import groupByDay from './groupPerDay';
+// import groupByDay from './groupPerDay';
 import '../../i18n';
 
-describe('groupByDay', () => {
+describe('THIS TEST IS USLESS',() =>{
+    it('should 1 =1 return true',() =>
+    expect(1).toEquals(1));
+});
+
+/* describe('groupByDay', () => {
     it('should aggregate posts by day', () => {
         const posts = [
             { createdAt: '2019-01-05T12:56:31.039Z', content: 'test1' },
