@@ -8,6 +8,7 @@ import { history } from 'Utils/History';
 import NetworkError from 'Components/Pages/Errors/NetworkError';
 import Profile from 'Components/Pages/Profile';
 import Navbar from 'Components/UI/Navbar';
+import Home from 'Components/Pages/Home';
 
 export default () => (
     <Router history={history}>
@@ -22,6 +23,7 @@ export default () => (
                 <Route exact path="/Groups/:id/edit" component={GroupForm} />
                 <Route exact path="/profile/:id" component={Profile} />
                 <Route exact path="/profile" component={Profile} />
+                <Route exact path="/Home" component={Home} />
             </Switch>
         </main>
     </Router>
