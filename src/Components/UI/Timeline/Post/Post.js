@@ -2,7 +2,7 @@ import React from 'react';
 import { ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from 'Components/UI/Avatar/Avatar';
-import Comment from './Comment/Comment';
+import Comment from './Comment';
 
 const styles = {
     truncate: {
@@ -17,7 +17,8 @@ const styles = {
 };
 
 const PostView = ({ post, classes }) => (<>
-    {post.mediaUrl &&
+    
+    {post && post.mediaUrl &&
         <ListItemAvatar>
             <img
                 src={post.mediaUrl}
@@ -26,6 +27,7 @@ const PostView = ({ post, classes }) => (<>
             />
         </ListItemAvatar>
     }
+    {post &&
     <ListItem >
         <ListItemAvatar>
             <Avatar user={post.user} />
@@ -35,7 +37,7 @@ const PostView = ({ post, classes }) => (<>
                 <div className={classes.truncate}>
                     <strong>
                         {post.user ? <span>
-                            {post.user.lastName} {post.user.lastName}
+                            {post.user.firstName} {post.user.lastName}
                         </span> : 'Anonymous'}
                     </strong>{' '}
                     {post.content}
@@ -44,8 +46,8 @@ const PostView = ({ post, classes }) => (<>
             secondary={new Date(post.createdAt).toLocaleString()}
         />
 
-    </ListItem>
-    {post.comments && post.comments.map((comment,index) => <Comment key={index} comment={comment} />)}
+    </ListItem>}
+    {post && post.comments && post.comments.map((comment,index) => <Comment key={index} comment={comment} />)}
 </>
 );
 
