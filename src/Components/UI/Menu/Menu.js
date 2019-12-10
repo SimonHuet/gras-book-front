@@ -12,7 +12,6 @@ import GroupTwoToneIcon from '@material-ui/icons/GroupTwoTone';
 import NotificationsNoneTwoToneIcon from '@material-ui/icons/NotificationsNoneTwoTone';
 import ChatTwoToneIcon from '@material-ui/icons/ChatTwoTone';
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
-import ProfileMenu from 'Components/UI/Menu/ProfileMenu/ProfileMenu';
 import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles( theme => ({
@@ -69,19 +68,18 @@ export default () => {
 
   return (
     <Paper className={classes.root}>
-      <ProfileMenu />
-        <MenuList>
-          {menuTabs(classes.icon).map(tab =>
-          <Link href={tab.url} className={classes.link}>
-            <MenuItem key={tab.trans} className={classes.item}>
-              {tab.icon}
-              <Typography variant="inherit" fontWeight="fontWeightBold" m={1}>
-                {t(tab.trans)}
-              </Typography>
-            </MenuItem>
-          </Link>
-          )}
-        </MenuList>        
+      <MenuList>
+        {menuTabs(classes.icon).map(tab =>
+        <Link href={tab.url} className={classes.link}>
+          <MenuItem key={tab.trans} className={classes.item}>
+            {tab.icon}
+            <Typography variant="inherit" fontWeight="fontWeightBold" m={1}>
+              {t(tab.trans)}
+            </Typography>
+          </MenuItem>
+        </Link>
+        )}
+      </MenuList>        
     </Paper>
   );
 };
