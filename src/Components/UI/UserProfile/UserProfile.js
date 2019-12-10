@@ -3,6 +3,7 @@ import { Box, Grid, ListItem, ListItemText } from '@material-ui/core';
 import Error from 'Components/UI/Error/Error';
 import { withTranslation } from 'react-i18next';
 import { withStyles } from '@material-ui/core/styles';
+import Menu from 'Components/UI/Menu/Menu';
 import UserShortDescription from '../UserShortDescription/UserShortDescription';
 
 const styles = {
@@ -27,6 +28,8 @@ const styles = {
 };
 
 const UserProfileView = ({ user, userFetchError, classes, t }) =>
+<Box>
+    <Menu />
     <Box>
         <Grid item xs={12}>
             <Grid>
@@ -59,6 +62,7 @@ const UserProfileView = ({ user, userFetchError, classes, t }) =>
             </Grid>
             }
         </Grid>
+    </Box>
     </Box>;
 
 const UserProfile = withStyles(styles)(UserProfileView);

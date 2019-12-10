@@ -5,8 +5,8 @@ import { connectWithLifecycle } from 'react-lifecycle-component';
 import Home from './Home';
 
 const mapStateToProps = state =>({
-    posts: state.timeline.posts,
-    fetchError: state.timeline.fetchError
+    posts: state.posts,
+    fetchError: state.fetchError
 });
 
 const mapDispatchToProps = dispatch => ({
