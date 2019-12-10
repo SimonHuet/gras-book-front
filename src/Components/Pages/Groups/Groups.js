@@ -11,9 +11,11 @@ import {
   IconButton,
   ListItemSecondaryAction,
   Paper,
+  Box,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom';
+import fetchBackend from 'Utils/fetchBackend';
 
 import Copyright from 'Components/UI/Copyright/Copyright';
 
@@ -35,6 +37,10 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(3, 0, 2),
   },
+  backgroundImage: {
+    backgroundImage:
+      'url(https://images.unsplash.com/photo-1495753379358-73c76ccd644b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2610&q=80)',
+  },
 }));
 
 export default props => {
@@ -45,9 +51,9 @@ export default props => {
   const { t } = useTranslation('Groups');
   const classes = useStyles();
   const quitGroup = groupid => {
-    return fetch(
-      // WARNING CURRENT USER UUID
-      `${process.env.REACT_APP_USER_API}/users/2e2a5ab9-9f63-418f-969f-fa6b65363a5f/groups/${groupid}`,
+    return fetchBackend(
+      process.env.REACT_APP_USER_API,
+      `users/${localStorage.userID}/groups/${groupid}`,
       {
         method: 'DELETE',
       }
@@ -57,38 +63,42 @@ export default props => {
     });
   };
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Paper className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          {t('groupList.title')}
-        </Typography>
-        <List>
-          {groups.groups.length > 0 ? (
-            groups.groups.map(group => (
-              <ListItem
-                button
-                component="a"
-                key={group.id}
-                onClick={() => SelectedValue(group)}
-                className="list-group-item list-group-item-action"
-              >
-                <ListItemText primary={`${group.name}`} />
+    <div className={classes.backgroundImage}>
+      <Grid container component="main" className={classes.root}>
+        <CssBaseline />
+        <Paper className={classes.paper}>
+          <Typography component="h1" variant="h5">
+            {t('groupList.title')}
+          </Typography>
+          <List>
+            {groups.groups.length > 0 ? (
+              groups.groups.map(group => (
+                <ListItem
+                  button
+                  component="a"
+                  key={group.id}
+                  onClick={() => SelectedValue(group)}
+                  className="list-group-item list-group-item-action"
+                >
+                  <ListItemText primary={`${group.name}`} />
 
-                <ListItemSecondaryAction>
-                  <IconButton onClick={() => quitGroup(group.id)} edge="end" aria-label="delete">
-                    <DeleteIcon />
-                  </IconButton>
-                </ListItemSecondaryAction>
-              </ListItem>
-            ))
-          ) : (
-            <ListItemText primary={t('groupList.noRecordFound')} />
-          )}
-        </List>
-        <Link to="/Groups/create">{t('groupList.CreateButton')}</Link>
-          <Copyright />
-      </Paper>
-    </Grid>
+                  <ListItemSecondaryAction>
+                    <IconButton onClick={() => quitGroup(group.id)} edge="end" aria-label="delete">
+                      <DeleteIcon />
+                    </IconButton>
+                  </ListItemSecondaryAction>
+                </ListItem>
+              ))
+            ) : (
+              <ListItemText primary={t('groupList.noRecordFound')} />
+            )}
+          </List>
+          <Link to="/Groups/create">{t('groupList.CreateButton')}</Link>
+          <Box className={classes.copyright} mt={5}>
+            <Copyright />
+          </Box>
+        </Paper>
+      </Grid>
+    </div>
   );
 };
