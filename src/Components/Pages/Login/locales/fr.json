@@ -1,10 +1,10 @@
 {
     "auth" : { 
         "title" : "Bienvenue sur GrasBook",
-        "infos" : "La connexion se fait à partir de l'outil Keycloak, vous allez ainsi être rédirigés",
+        "infos" : "La connexion s'est faite à partir de l'outil Keycloak, cliquer pour entrer sur le site",
         "manager": {
             "redirect": {
-                "placeholder": "Se Connecter"
+                "placeholder": "Continuer"
             }
         }
     }

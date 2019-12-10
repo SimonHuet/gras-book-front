@@ -3,7 +3,6 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import {
-  Box,
   CssBaseline,
   Grid,
   makeStyles,
@@ -12,6 +11,7 @@ import {
   TextField,
   Paper,
 } from '@material-ui/core';
+import Copyright from 'Components/UI/Copyright/Copyright';
 import UserSelect from './select';
 
 function notId(a, b) {
@@ -114,9 +114,6 @@ export default props => {
       width: '40%',
       marginLeft: '40px',
     },
-    copyright: {
-      bottom: theme.spacing(100),
-    },
     button: {
       margin: theme.spacing(3, 0, 2),
     },
@@ -126,14 +123,7 @@ export default props => {
     },
   }));
 
-  const Copyright = () => (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © Gras book '}
-      {new Date().getFullYear()}
-    </Typography>
-  );
-
-  const { t } = useTranslation('GroupForm');
+  const { t } = useTranslation('Groups');
   const classes = useStyles();
 
   return (
@@ -175,10 +165,7 @@ export default props => {
             </Grid>
           </Grid>
         </form>
-
-        <Box className={classes.copyright} mt={5}>
-          <Copyright />
-        </Box>
+        <Copyright />
       </div>
     </Grid>
   );
