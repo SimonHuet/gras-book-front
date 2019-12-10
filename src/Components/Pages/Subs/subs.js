@@ -60,8 +60,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+// eslint-disable-next-line no-unused-vars
 let searchInput = '';
-
+let IsFollowing = true;
 export default props => {
   const SelectedValue = user => {
     return props.history.push(`/profile/${user.id}`);
@@ -69,8 +70,8 @@ export default props => {
   const [state, setState] = React.useState({
     field: '',
   });
-  const { users, follows } = { ...props };
-  const usersList = users.users;
+  const { follows } = { ...props };
+  const usersList = follows.follows;
   const [tab, setTab] = React.useState([]);
   useEffect(() => {
     setTab(usersList);
@@ -78,13 +79,17 @@ export default props => {
   }, [usersList]);
 
   const RefreshList = async () => {
-    let searchField = '';
-    if (state) {
-      searchField = `?${state}=${searchInput}`;
+    if (state === 'follower') {
+      IsFollowing = false;
+      await fetchBackend(process.env.REACT_APP_USER_API, `users/${localStorage.userID}/followers`)
+        .then(data => setTab(data.body))
+        .catch(err => err);
+    } else {
+      IsFollowing = true;
+      await fetchBackend(process.env.REACT_APP_USER_API, `users/${localStorage.userID}/following`)
+        .then(data => setTab(data.body))
+        .catch(err => err);
     }
-    await fetchBackend(process.env.REACT_APP_USER_API, `users${searchField}`)
-      .then(data => setTab(data.body))
-      .catch(err => err);
   };
 
   const onChange = value => {
@@ -94,20 +99,40 @@ export default props => {
     setState(event.target.value);
   };
   const follow = (id, value) => {
-    const subs = {
-      userId: id,
-      followerId: localStorage.userID,
-    };
-    return fetchBackend(process.env.REACT_APP_USER_API, `subscriptions`, {
+    let subs;
+    if (state === 'follower') {
+      subs = {
+        userId: id,
+        followerId: localStorage.userID,
+      };
+    } else {
+      subs = {
+        userId: localStorage.userID,
+        followerId: id,
+      };
+    }
+    return fetchBackend(process.env.REACT_APP_USER_API, 'subscriptions', {
       method: 'POST',
       body: JSON.stringify(subs),
     }).then(rep => {
       props.history.push('/', null);
-      props.history.push('/search', null);
+      props.history.push('/subs', null);
     });
   };
   const unFollow = (id, value) => {
     // CURRENT USER ID
+    if (state === 'follower') {
+      return fetchBackend(
+        process.env.REACT_APP_USER_API,
+        `users/${localStorage.userID}/followers/${id}`,
+        {
+          method: 'DELETE',
+        }
+      ).then(rep => {
+        props.history.push('/', null);
+        props.history.push('/subs', null);
+      });
+    }
     return fetchBackend(
       process.env.REACT_APP_USER_API,
       `users/${localStorage.userID}/following/${id}`,
@@ -116,11 +141,11 @@ export default props => {
       }
     ).then(rep => {
       props.history.push('/', null);
-      props.history.push('/search', null);
+      props.history.push('/subs', null);
     });
   };
   const SelectButton = id => {
-    if (follows.follows.find(follower => follower.id === id)) {
+    if (IsFollowing) {
       return (
         <ListItemSecondaryAction>
           <IconButton onClick={value => unFollow(id, value)} edge="end" aria-label="delete">
@@ -145,14 +170,14 @@ export default props => {
 
   const classes = useStyles();
 
-  const { t } = useTranslation('search');
+  const { t } = useTranslation('Subs');
 
   return (
     <Grid>
       <Grid container spacing={2} justify="center" alignItems="center" className={classes.root}>
         <Grid className={classes.title} item xs={12}>
           <Typography variant="h3" component="h3" gutterBottom>
-            {t('search.title')}
+            {t('sub.title')}
           </Typography>
         </Grid>
         <Grid item xs={9} className={classes.margin}>
@@ -186,50 +211,51 @@ export default props => {
                 id: 'outlined-age-native-simple',
               }}
             >
-              <option value="" />
-              <option value="firstName">{t('search.firstname')}</option>
-              <option value="lastName">{t('search.lastname')}</option>
-              <option value="email">{t('search.email')}</option>
+              <option value="following">{t('sub.following')}</option>
+              <option value="follower">{t('sub.follower')}</option>
             </Select>
           </FormControl>
         </Grid>
         <List className={classes.search}>
           {tab.length > 0 ? (
             tab.map(user => (
-              <ListItem
-                className="list-user-item list-user-item-action"
-                button
-                component="a"
-                key={user.id}
-                onClick={() => SelectedValue(user)}
-                alignItems="flex-start"
-              >
-                <ListItemAvatar>
-                  <Avatar alt="user's icon" src={user.pictureUrl} />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={`${user.firstName} ${user.lastName}`}
-                  secondary={
-                    <>
-                      <Typography
-                        component="span"
-                        variant="body2"
-                        className={classes.inline}
-                        color="textPrimary"
-                      >
-                        {user.login}
-                      </Typography>
-                      {user.description}
-                    </>
-                  }
-                />
+              <>
+                <ListItem
+                  className="list-user-item list-user-item-action"
+                  button
+                  component="a"
+                  key={user.id}
+                  onClick={() => SelectedValue(user)}
+                  alignItems="flex-start"
+                >
+                  <ListItemAvatar>
+                    <Avatar alt="" src={user.pictureUrl} />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={`${user.firstName} ${user.lastName}`}
+                    secondary={
+                      <>
+                        <Typography
+                          component="span"
+                          variant="body2"
+                          className={classes.inline}
+                          color="textPrimary"
+                        >
+                          {user.login}
+                        </Typography>
+                        {user.description}
+                      </>
+                    }
+                  />
+
+                  {SelectButton(user.id)}
+                </ListItem>
 
                 <Divider variant="inset" component="li" />
-                {SelectButton(user.id)}
-              </ListItem>
+              </>
             ))
           ) : (
-            <ListItemText primary={t('userList.noRecordFound')} />
+            <ListItemText primary={t('sub.noRecordFound')} />
           )}
         </List>
       </Grid>

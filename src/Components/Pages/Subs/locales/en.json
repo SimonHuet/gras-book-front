@@ -1,0 +1,8 @@
+{
+  "sub": {
+    "title": "List of relations :",
+    "follower": "follower",
+    "following": "following",
+    "noRecordFound": "No relations found in the database"
+  }
+}

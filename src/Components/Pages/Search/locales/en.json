@@ -1,0 +1,9 @@
+{
+  "search": {
+    "title": "List of users :",
+    "firstname": "first name",
+    "lastname": "last name",
+    "email": "email",
+    "noRecordFound": "No users found in the database"
+  }
+}

@@ -9,6 +9,8 @@ import NetworkError from 'Components/Pages/Errors/NetworkError';
 import Profile from 'Components/Pages/Profile';
 import ProfileEdit from 'Components/Pages/Profile/Edit';
 import Navbar from 'Components/UI/Navbar';
+import Search from 'Components/Pages/Search';
+import Subs from 'Components/Pages/Subs';
 import Home from 'Components/Pages/Home';
 
 export default () => (
@@ -25,6 +27,8 @@ export default () => (
         <Route exact path="/profile/:id" component={Profile} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/profileEdit" component={ProfileEdit} />
+        <Route exact path="/search" component={Search} />
+        <Route exact path="/subs" component={Subs} />
         <Route exact path="/home" component={Home} />
       </Switch>
     </main>
