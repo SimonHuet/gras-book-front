@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import ProfilePhoto from 'Components/UI/Menu/ProfileMenu/ProfilePhoto/ProfilePhoto';
+import Avatar from 'Components/UI/Avatar/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -31,7 +31,7 @@ export default ({ user, fetchError }) => {
     <div className={classes.root}>
         <Grid container spacing={2}>
           <Grid item>
-            <ProfilePhoto />
+            <Avatar />
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>

@@ -25,6 +25,7 @@ export default () => (
         <Route exact path="/profile/:id" component={Profile} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/profileEdit" component={ProfileEdit} />
+        <Route exact path="/home" component={Home} />
       </Switch>
     </main>
   </Router>
