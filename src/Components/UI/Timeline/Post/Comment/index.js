@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import fetchBackend from 'Utils/fetchBackend';
 import Comment from './Comment';
 
-const CommentView = ({ comment }) => {
+const CommentView = ({ comment , typeReaction}) => {
 
     const [fullComment, setFullComment] = useState(false);
 
@@ -17,12 +17,25 @@ const CommentView = ({ comment }) => {
             method: 'GET'
         })
             .then(async ({ body }) => ({ ...comment, user: body }))
-            .then(async (pst) => setFullComment(pst))
+            .then(async (cmt) => {
+                fetchBackend(process.env.REACT_APP_REACTION_API, `objects/${comment.uuid}/typeReactions?objectType=comment`,{
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    method: 'GET'
+                })
+                .then(({ body }) => ({...cmt, reactions: body}))
+                .then( c => setFullComment(c))
+                .catch(err => console.log(err));
+            })
             .catch(err => console.error(err));
+
+            
     }
 }, [comment]);
 
-    return <Comment comment={fullComment} />;
+    return <Comment comment={fullComment} typeReaction={typeReaction} />;
 };
 
 export default CommentView;
