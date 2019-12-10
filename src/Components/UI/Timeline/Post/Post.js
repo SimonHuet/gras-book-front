@@ -2,6 +2,8 @@ import React from 'react';
 import { ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from 'Components/UI/Avatar/Avatar';
+import CreateComment from 'Components/UI/CreateComment';
+import MenuPost from 'Components/UI/MenuPost';
 import Comment from './Comment';
 
 const styles = {
@@ -13,6 +15,9 @@ const styles = {
     },
     image: {
         maxWidth: 600,
+    },
+    more: {
+        alignContent: "flex-end"
     }
 };
 
@@ -44,9 +49,11 @@ const PostView = ({ post, classes }) => (<>
                 </div>
             }
             secondary={new Date(post.createdAt).toLocaleString()}
-        />
-
+        >
+        <MenuPost className={classes.more} />
+        </ListItemText>
     </ListItem>}
+    <CreateComment />
     {post && post.comments && post.comments.map((comment,index) => <Comment key={index} comment={comment} />)}
 </>
 );

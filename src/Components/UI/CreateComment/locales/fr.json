@@ -1,0 +1,9 @@
+{
+    "comment": {
+        "textField": {
+            "placeholder": "Hey, commente ce post !"
+        },
+        "createButton": "Publier",
+        "uploadFile": "Ajouter un fichier"
+    }
+}

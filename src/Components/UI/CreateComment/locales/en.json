@@ -1,0 +1,9 @@
+{
+    "comment": {
+        "textField": {
+            "placeholder": "Hey, comment this !"
+        },
+        "createButton": "Publish",
+        "uploadFile": "Upload File"
+    }
+}

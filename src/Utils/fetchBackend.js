@@ -19,6 +19,7 @@ export default (baseUrl, path, options = {}) => {
 
 const getHeaders = optionsHeaders => {
   const token = localStorage.authToken;
+  console.log(localStorage.authToken);
 
   return {
     headers: {
