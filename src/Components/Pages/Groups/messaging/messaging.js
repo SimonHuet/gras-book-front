@@ -108,7 +108,6 @@ export default props => {
     message.content = content;
     message.mediaUrl = imageURL;
     fetch(`${process.env.REACT_APP_MESSAGE_API}/messages/?format=json`, {
-      'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
       headers: new Headers({ 'content-type': 'application/json' }),
       method: 'POST',

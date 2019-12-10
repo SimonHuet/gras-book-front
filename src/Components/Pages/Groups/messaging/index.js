@@ -22,15 +22,12 @@ const mapDispatchToProps = (Dispatch, ownProps) => ({
   componentDidMount: () => {
     Dispatch(fetchGroupUsers());
     Dispatch(fetchMessages());
-    fetchBackend(process.env.REACT_APP_USER_API, `groups/${ownProps.match.params.id}/Users`, {
-      'Access-Control-Allow-Origin': '*',
-    })
+    fetchBackend(process.env.REACT_APP_USER_API, `groups/${ownProps.match.params.id}/Users`, {})
       .then(data => Dispatch(groupUsersFetched(data.body)))
       .catch(err => Dispatch(groupUsersFetchError(err)));
     fetchBackend(
       process.env.REACT_APP_MESSAGE_API,
-      `messages/?objectUUID=${ownProps.match.params.id}&objectType=group`,
-      { 'Access-Control-Allow-Origin': '*' }
+      `messages/?objectUUID=${ownProps.match.params.id}&objectType=group`
     )
       .then(data => Dispatch(messagesFetched(data.body)))
       .catch(err => Dispatch(messagesFetchError(err)));
