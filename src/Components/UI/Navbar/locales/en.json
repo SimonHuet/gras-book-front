@@ -2,13 +2,12 @@
     "menu" : {
         "profile" :{
             "label" : "My profile",
-            "timeline" : {
-                "label" : "My Timeline"
+            "groups" : {
+                "label" : "My groups"
             }
         },
         "logout" :{
             "label" : "Log out"
         }
-        
     }
 }

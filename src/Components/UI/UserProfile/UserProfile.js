@@ -16,6 +16,9 @@ const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
+    secondaryInfos: {
+        left:'10%',
+    },
     list: {
         display: 'flex',
         flexDirection:'row'
