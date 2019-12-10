@@ -6,7 +6,9 @@ export default (baseUrl, path, options = {}) => {
 
   return fetch(`${baseUrl}/${path}`, options)
     .then(response =>
-      response.status < 400 ? resolveResponseAndBody(response) : Promise.reject(response)
+      response.status < 400 && response.status !== 204
+        ? resolveResponseAndBody(response)
+        : Promise.reject(response)
     )
     .then(([response, body]) => ({
       status: response.status,
@@ -16,7 +18,7 @@ export default (baseUrl, path, options = {}) => {
 };
 
 const getHeaders = optionsHeaders => {
-    const token = localStorage.authToken; 
+  const token = localStorage.authToken;
 
   return {
     headers: {

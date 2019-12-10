@@ -15,9 +15,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (Dispatch, ownProps) => ({
   componentDidMount: () => {
     Dispatch(fetchPosts());
-    fetchBackend(process.env.REACT_APP_USER_API, `users`, {
-      'Access-Control-Allow-Origin': '*',
-    })
+    fetchBackend(process.env.REACT_APP_USER_API, `users`, {})
       .then(data => Dispatch(postsFetched(data.body)))
       .catch(err => Dispatch(postsFetchError(err)));
   },
