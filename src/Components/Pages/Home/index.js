@@ -5,15 +5,15 @@ import { connectWithLifecycle } from 'react-lifecycle-component';
 import Home from './Home';
 
 const mapStateToProps = state =>({
-    posts: state.timeline.posts,
-    fetchError: state.timeline.fetchError
+    posts: state.posts,
+    fetchError: state.fetchError
 });
 
 const mapDispatchToProps = dispatch => ({
     componentDidMount: () => {
         dispatch(fetchPosts());
 
-        fetchBackend(process.env.REACT_APP_TIMELINE_API, "routes")
+        fetchBackend(process.env.REACT_APP_POST_API, "routes")
         .then(data => dispatch(postsFetched(data)))
         .catch( err  => dispatch(
             postsFetchError(err))

@@ -1,0 +1,9 @@
+{
+    "posts": {
+        "textField": {
+            "placeholder": "Hey, dis quelque chose aujourd'hui !"
+        },
+        "createButton": "Publier",
+        "uploadFile": "Ajouter un fichier"
+    }
+}
