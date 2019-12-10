@@ -3,13 +3,7 @@ import Menu from 'Components/UI/Menu/Menu';
 import Timeline from 'Components/UI/Timeline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core';
-
-const Copyright = () => (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © Gras book '}
-      {new Date().getFullYear()}
-    </Typography>
-  );
+import Copyright from  'Components/UI/Copyright/Copyright';
 
 const useStyles = makeStyles(theme => ({
     title: {
