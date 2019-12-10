@@ -5,17 +5,12 @@ import {
   Typography,
   Container,
   withStyles,
-  ListItemText,
   ListItemAvatar,
-  ListItem,
   Box,
   TextField,
   Button,
   Avatar as Av,
 } from '@material-ui/core';
-import TimelineLoading from 'Components/UI/TimelineLoading/TimelineLoading';
-import TimelineLoaded from 'Components/UI/TimelineLoaded/TimelineLoaded';
-import TimelineEmpty from 'Components/UI/TimelineEmpty/TimelineEmpty';
 import Error from 'Components/UI/Error/Error';
 import Avatar from 'Components/UI/Avatar/Avatar';
 import fetchBackend from 'Utils/fetchBackend';
@@ -45,6 +40,7 @@ const styles = {
 
 const ProfileView = props => {
   const { user, userFetchError, classes, t } = props;
+  // eslint-disable-next-line no-unused-vars
   const [state, setState] = useState({
     uploading: false,
     images: [],

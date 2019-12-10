@@ -1,13 +1,5 @@
 import { connectWithLifecycle } from 'react-lifecycle-component';
-import fetchBackend from 'Utils/fetchBackend';
-import {
-  fetchUserPosts,
-  userPostsFetched,
-  userPostsFetchError,
-  userFetched,
-  userFetchError,
-  fetchUser,
-} from 'Redux/_actions/profile';
+import { userFetched, userFetchError, fetchUser } from 'Redux/_actions/profile';
 import { userService } from 'Utils/User.service';
 import Edit from './Edit';
 
@@ -22,7 +14,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   componentDidMount: () => {
-    console.log(localStorage.getItem('userID'));
     dispatch(fetchUser());
     userService
       .getConnectedUser()
