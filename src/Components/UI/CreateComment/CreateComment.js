@@ -28,18 +28,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default props => {
-  const { posts, postUuid } = props;
+  const { comments, commentUuid } = props;
   const [IsUpdated, setIsUpdated] = useState({});
   const classes = useStyles();
-  const { t } = useTranslation('CreatePost');
+  const { t } = useTranslation('CreateComment');
   const [state, setState] = useState({
     uploading: false,
     images: [],
   });
-  const [post, setPost] = useState({
+  const [comment, setComment] = useState({
     userUuid: localStorage.userID,
   });
-  const [currentImage, setCurrentImage] = useState({});
+  /* const [currentImage, setCurrentImage] = useState({});
   const onChangeImage = async e => {
     const files = Array.from(e.target.files);
     setState({ uploading: true });
@@ -47,84 +47,83 @@ export default props => {
     const file = toBase64(files[0]);
     const filename = files[0].name;
     const extension = /[.]/.exec(filename) ? /[^.]+$/.exec(filename)[0] : undefined;
-    setPost({
-      ...post,
+    setComment({
+      ...comment,
       mediaType: extension,
     });
     await file.then(data => {
-      setPost({
-        ...post,
+      console.log(extension);
+      setComment({
+        ...comment,
         mediaBlob: data,
         mediaType: extension,
       });
     });
-  };
+  }; */
   useEffect(() => {
     setIsUpdated(false);
-    if (postUuid !== undefined) {
-      const p = posts.posts.filter(pil => pil.uuid === postUuid);
-      console.log(p);
+    if (commentUuid !== undefined) {
+      const p = comments.comments.filter(pil => pil.uuid === commentUuid);
       // if (p.length === 1) {
-      setCurrentImage(p.mediaUrl);
-      setPost({
-        ...post,
+      // setCurrentImage(p.mediaUrl);
+      setComment({
+        ...comment,
         content: null,
       });
       setIsUpdated(true);
       // }
     }
-  }, [posts]);
+  }, [comments]);
 
-  const toBase64 = file =>
+  /* const toBase64 = file =>
     new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => resolve(reader.result);
       reader.onerror = error => reject(error);
-    });
+    }); */
 
-  const actionPost = () => {
-    let url = `posts`;
+  const actionComment = () => {
+    let url = `comments`;
     let method = 'POST';
     if (IsUpdated) {
-      url = `posts/${postUuid}`;
+      url = `comments/${commentUuid}`;
       method = 'PUT';
     }
     fetchBackend(process.env.REACT_APP_POST_API, url, {
       method,
-      body: JSON.stringify(post),
+      body: JSON.stringify(comment),
     }).catch(res => props.history.push('/Home', null));
   };
 
-  const onChangePost = val => {
-    post.content = val.target.value;
+  const onChangeComment = val => {
+    comment.content = val.target.value;
   };
-
+  /* <Grid item xs={12}>
+            <img className={classes.Image} alt="" src={currentImage} />
+          </Grid> 
+          
+            <Button className={classes.button} size="small" variant="contained" component="label">
+              {t('comments.uploadFile')}
+              <input type="file" onChange={e => onChangeImage(e)} style={{ display: 'none' }} />
+            </Button> */
   return (
     <div>
-      <form className={classes.root} onSubmit={() => actionPost()} autoComplete="off">
+      <form className={classes.root} onSubmit={() => actionComment()} autoComplete="off">
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <img className={classes.Image} alt="" src={currentImage} />
-          </Grid>
           <Grid item xs={8}>
             <TextField
               id="outlined-basic"
-              label={t('posts.textField.placeholder')}
+              label={t('comments.textField.placeholder')}
               variant="outlined"
               fullWidth
               multiline
               InputProps={{ inputProps: { pattern: '^[a-zA-Z0-9]*$' } }}
-              defaultValue={post.content}
-              onChange={onChangePost}
+              defaultValue={comment.content}
+              onChange={onChangeComment}
             />
           </Grid>
           <Grid item xs={4}>
-            <Button className={classes.button} size="small" variant="contained" component="label">
-              {t('posts.uploadFile')}
-              <input type="file" onChange={e => onChangeImage(e)} style={{ display: 'none' }} />
-            </Button>
-
             <Button
               className={classes.button}
               size="small"
@@ -132,7 +131,7 @@ export default props => {
               color="primary"
               type="submit"
             >
-              {t('posts.createButton')}
+              {t('comments.createButton')}
             </Button>
           </Grid>
         </Grid>
