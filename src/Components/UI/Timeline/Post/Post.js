@@ -2,6 +2,7 @@ import React from 'react';
 import { ListItem, List,  ListItemAvatar, ListItemText, Fab } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from 'Components/UI/Avatar/Avatar';
+import fetchBackend from 'Utils/fetchBackend';
 import Comment from './Comment';
 
 const styles = {
@@ -20,9 +21,17 @@ const styles = {
     }
 };
 
-const addReaction = (type) =>{
-    
-
+const addReaction = (type, post, typeReact) =>{
+    console.log(post.reactions);
+    fetchBackend(process.env.REACT_APP_REACTION_API, `reactions/`, {
+        body: JSON.stringify({
+            typeReactionUuid: type.uuid,
+            userUuid: localStorage.userID,
+            objectUuid: post.uuid,
+            objectType: typeReact
+        }),
+        method: 'POST'
+    });
 };
 
 const PostView = ({ post, typeReaction,  classes }) => (<>
@@ -57,11 +66,11 @@ const PostView = ({ post, typeReaction,  classes }) => (<>
 
         {typeReaction &&
         <List>
-            {Object.keys(typeReaction).map(type =>
-                <Fab key={type.uuid} onClick={addReaction(typeReaction[type])} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
+            {Object.keys(typeReaction).map(type => 
+                <Fab key={type.uuid} onClick={ () => addReaction(typeReaction[type], post, 'post')} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
                     <img className={classes.icon} src={typeReaction[type].iconUrl} alt=""/>
                 </Fab>
-            )
+              )
             }
         </List>
         }

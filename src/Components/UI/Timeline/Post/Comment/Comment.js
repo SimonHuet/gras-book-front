@@ -47,7 +47,7 @@ export const CommentView = ({ comment, typeReaction, classes }) => <ListItem cla
     {typeReaction &&
         <List>
             {Object.keys(typeReaction).map(type =>
-                <Fab key={type.uuid} onClick={addReaction(typeReaction[type])} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
+                <Fab key={type.uuid} onClick={addReaction(typeReaction[type], comment, 'comment')} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
                     <img className={classes.icon} src={typeReaction[type].iconUrl} alt=""/>
                 </Fab>
             )
