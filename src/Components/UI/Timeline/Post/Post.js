@@ -1,7 +1,8 @@
 import React from 'react';
-import { ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
+import { ListItem, List,  ListItemAvatar, ListItemText, Fab } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from 'Components/UI/Avatar/Avatar';
+import fetchBackend from 'Utils/fetchBackend';
 import Comment from './Comment';
 
 const styles = {
@@ -13,10 +14,27 @@ const styles = {
     },
     image: {
         maxWidth: 600,
+    },
+    icon:{
+        maxwidth: 24,
+        maxHeight: 24
     }
 };
 
-const PostView = ({ post, classes }) => (<>
+const addReaction = (type, post, typeReact) =>{
+    console.log(post.reactions);
+    fetchBackend(process.env.REACT_APP_REACTION_API, `reactions/`, {
+        body: JSON.stringify({
+            typeReactionUuid: type.uuid,
+            userUuid: localStorage.userID,
+            objectUuid: post.uuid,
+            objectType: typeReact
+        }),
+        method: 'POST'
+    });
+};
+
+const PostView = ({ post, typeReaction,  classes }) => (<>
     
     {post && post.mediaUrl &&
         <ListItemAvatar>
@@ -45,6 +63,17 @@ const PostView = ({ post, classes }) => (<>
             }
             secondary={new Date(post.createdAt).toLocaleString()}
         />
+
+        {typeReaction &&
+        <List>
+            {Object.keys(typeReaction).map(type => 
+                <Fab key={type.uuid} onClick={ () => addReaction(typeReaction[type], post, 'post')} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
+                    <img className={classes.icon} src={typeReaction[type].iconUrl} alt=""/>
+                </Fab>
+              )
+            }
+        </List>
+        }
 
     </ListItem>}
     {post && post.comments && post.comments.map((comment,index) => <Comment key={index} comment={comment} />)}

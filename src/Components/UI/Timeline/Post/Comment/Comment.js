@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
+import { ListItem, List, ListItemAvatar, Fab, ListItemText } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from 'Components/UI/Avatar/Avatar';
 
@@ -15,10 +15,19 @@ const styles = {
     },
     image: {
         maxWidth: 500,
+    },
+    icon:{
+        maxwidth: 24,
+        maxHeight: 24
     }
 };
 
-export const CommentView = ({ comment, classes }) => <ListItem className={classes.wrapper}>
+const addReaction = (type) =>{
+    
+
+};
+
+export const CommentView = ({ comment, typeReaction, classes }) => <ListItem className={classes.wrapper}>
     <ListItemAvatar>
         <Avatar user={comment.user} />
     </ListItemAvatar>
@@ -35,6 +44,16 @@ export const CommentView = ({ comment, classes }) => <ListItem className={classe
         }
         secondary={new Date(comment.createdAt).toLocaleString()}
     />
+    {typeReaction &&
+        <List>
+            {Object.keys(typeReaction).map(type =>
+                <Fab key={type.uuid} onClick={addReaction(typeReaction[type], comment, 'comment')} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
+                    <img className={classes.icon} src={typeReaction[type].iconUrl} alt=""/>
+                </Fab>
+            )
+            }
+        </List>
+        }
 
 </ListItem>;
 
