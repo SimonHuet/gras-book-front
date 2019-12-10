@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import {
-  Box,
   CssBaseline,
   Grid,
   makeStyles,
@@ -20,6 +19,7 @@ import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import openSocket from 'socket.io-client';
 import * as moment from 'moment';
+import Copyright from 'Components/UI/Copyright/Copyright';
 
 let currentMessagingList = [];
 
@@ -64,9 +64,6 @@ export default props => {
     userList: {
       height: '600px',
       overflow: 'auto',
-    },
-    copyright: {
-      bottom: theme.spacing(100),
     },
     button: {
       margin: theme.spacing(3, 0, 2),
@@ -123,13 +120,6 @@ export default props => {
     imageURL = value.target.value;
   };
 
-  const Copyright = () => (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © Gras book '}
-      {new Date().getFullYear()}
-    </Typography>
-  );
-
   const CorrespondingImage = uuid => {
     const user = groupUsers.groupUsers.filter(u => u.id === uuid);
     if (user.length >= 1) {
@@ -175,16 +165,14 @@ export default props => {
               </ListItem>
             ))
           ) : (
-            <ListItemText primary={t('group.userList.noRecordFound')} />
-          )}
+              <ListItemText primary={t('group.userList.noRecordFound')} />
+            )}
         </List>
         <Fab onClick={() => SelectedValue()} color="secondary" variant="extended" aria-label="edit">
           <EditIcon />
           {t('groupList.UpdateButton')}
         </Fab>
-        <Box className={classes.copyright} mt={5}>
-          <Copyright />
-        </Box>
+        <Copyright />
       </div>
       <Paper className={classes.paperMessage}>
         <Grid className={classes.MasterGrid} container spacing={3}>
@@ -211,8 +199,8 @@ export default props => {
                 </ListItem>
               ))
             ) : (
-              <ListItemText primary={t('group.userList.noRecordFound')} />
-            )}
+                <ListItemText primary={t('group.userList.noRecordFound')} />
+              )}
           </List>
           <Grid item xs={12}>
             <TextField

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  Box,
   CssBaseline,
   Grid,
   makeStyles,
@@ -16,11 +15,12 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom';
 
+import Copyright from 'Components/UI/Copyright/Copyright';
+
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
+    postion: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
@@ -32,20 +32,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     padding: '80px',
   },
-  copyright: {
-    bottom: theme.spacing(100),
-  },
   button: {
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
-const Copyright = () => (
-  <Typography variant="body2" color="textSecondary" align="center">
-    {'Copyright © Gras book '}
-    {new Date().getFullYear()}
-  </Typography>
-);
 
 export default props => {
   const SelectedValue = group => {
@@ -61,7 +51,7 @@ export default props => {
       {
         method: 'DELETE',
       }
-    ).then(rep => {
+    ).then(() => {
       props.history.push('/', null);
       props.history.push('/Groups', null);
     });
@@ -97,9 +87,7 @@ export default props => {
           )}
         </List>
         <Link to="/Groups/create">{t('groupList.CreateButton')}</Link>
-        <Box className={classes.copyright} mt={5}>
           <Copyright />
-        </Box>
       </Paper>
     </Grid>
   );

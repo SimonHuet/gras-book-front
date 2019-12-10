@@ -62,7 +62,7 @@ export default () => {
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <Link to='/welcome'> 
+                        <Link to='/Home'> 
                             <AppIcon small />
                         </Link>
                     </IconButton>

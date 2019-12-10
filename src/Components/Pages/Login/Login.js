@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import AppIcon from 'Components/UI/AppIcon';
 import LanguageSelector from 'Components/UI/LanguageSelector';
+import Copyright from 'Components/UI/Copyright/Copyright';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -32,20 +33,10 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    copyright: {
-        bottom: theme.spacing(100),
-    },
     button: {
         margin: theme.spacing(3, 0, 2),
     },
 }));
-
-const Copyright = () =>
-    <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © Gras book '}
-        {new Date().getFullYear()}
-    </Typography>;
-
 
 export default () => {
     const { t } = useTranslation('Login');
@@ -58,27 +49,25 @@ export default () => {
             <Grid item xs={false} sm={4} md={7} className={classes.image} />
             <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
-                    
+
                     <Typography component="h1" variant="h5">
-                        {t('auth.title')} 
+                        {t('auth.title')}
                     </Typography>
-                    
+
                     <AppIcon medium />
-                    
-                    <br/>
+
+                    <br />
                     <Typography component="p">
                         {t('auth.infos')}
                     </Typography>
 
                     <Button color="primary" className={classes.button} onClick={() => keycloak.login()}>
-                        <Link to='/home'>{t('auth.manager.redirect.placeholder')}</Link>
+                        <Link to='/Home'>{t('auth.manager.redirect.placeholder')}</Link>
                     </Button>
 
                     <LanguageSelector />
 
-                    <Box className={classes.copyright} mt={5}>
-                        <Copyright />
-                    </Box>
+                    <Copyright />
                 </div>
             </Grid>
         </Grid>

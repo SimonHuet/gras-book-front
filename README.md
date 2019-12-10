@@ -5,6 +5,8 @@
 
 Copy `docker-compose.yml.dist` to `docker-compose.yml`
 
+Copy `.env.dist` to `.env` and fill it with the environnement informations
+
 Build the images with : `docker-compose build `
 
 ## Running
@@ -29,10 +31,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Storybook
 
-Add a .stories.js in components dir to describe story behavior
+Add a .stories.js in components directory to describe a new story behavior
 
-You can launch the storybook with the following command :
-
-`docker-compose exec client npm run storybook`
+The storybook is launch with start script , in parralel with the app
 
 PS: the client container has to be running to launch this command
