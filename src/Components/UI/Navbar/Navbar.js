@@ -62,7 +62,7 @@ export default () => {
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <Link to='/welcome'> 
+                        <Link to='/Home'> 
                             <AppIcon small />
                         </Link>
                     </IconButton>
@@ -96,7 +96,7 @@ export default () => {
                                 <Link to="/profile" >{t('menu.profile.label')} </Link>
                             </MenuItem>
                             <MenuItem onClick={handleClose}>
-                                <Link to="/timeline" >{t('menu.profile.timeline.label')}</Link>
+                                <Link to="/Groups" >{t('menu.profile.groups.label')}</Link>
                             </MenuItem>
                         </Menu>
                         <IconButton
