@@ -16,14 +16,22 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
     componentDidMount: () => {
         dispatch(fetchUserPosts());
-        console.log(ownProps.match.params.id);
-        const id = ownProps.match.params.id ? ownProps.match.params.id : localStorage.userId;
 
-        fetchBackend(process.env.REACT_APP_POSTS_API, `users/${id}/posts`)
-            .then(posts => dispatch(userPostsFetched(posts)))
-            .catch(err => dispatch(
-                userPostsFetchError(err))
-            );
+        let id = localStorage.userID;
+        if (ownProps.match.params.id) {
+            id = ownProps.match.params.id;
+        }
+
+        fetchBackend(process.env.REACT_APP_POST_API, `users/${id}/posts?limit=6`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+
+            },
+            method: 'GET'
+        })
+            .then(({ body }) => dispatch(userPostsFetched(body)))
+            .catch(err => dispatch(userPostsFetchError(err)));
 
         dispatch(fetchUser());
 
@@ -31,10 +39,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             userService.getConnectedUser()
                 .then(user => dispatch(userFetched(user)))
                 .catch(err => dispatch(userFetchError(err)));
-        }else{
+        } else {
             fetchBackend(process.env.REACT_APP_USER_API, `users/${id}`)
-            .then(user => dispatch(userFetched(user)))
-            .catch(err => dispatch(userFetchError(err)));
+                .then(user => dispatch(userFetched(user)))
+                .catch(err => dispatch(userFetchError(err)));
         }
     }
 });

@@ -24,7 +24,7 @@ const TimelineView = ({ posts = [], postsFetchError, classes }) => {
                     />
                 }
                 <List>
-                    {posts.map(post => (<span key={post.id}>
+                    {posts.map((post,index) => (<span key={index}>
                         <Post post={post} />
                         <Divider />
                     </span>
