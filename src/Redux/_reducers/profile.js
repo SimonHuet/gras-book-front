@@ -40,7 +40,7 @@ export const reducer = (oldSate = INITIAL_STATE, action = {}) => {
             return {
                 ...oldSate,
                 userPosts: action.posts,
-                isFetchingPosts: false,
+                isFetchingUserPosts: false,
             };
         case profileConstants.USER_POSTS_FETCH_ERROR:
             return {

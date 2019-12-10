@@ -6,16 +6,11 @@ export const userService = {
 };
 
 function getConnectedUser() {
-  return fetchBackend(
-    process.env.REACT_APP_USER_API,
-    `users?limit=5&page=0&keyCloackUuid=${localStorage.keycloakUUID}`,
-    {
-      headers: {},
-    }
-  ).then(data => {
-    localStorage.setItem('userID', data.body[0].id);
-    return data.body[0];
-  });
+    return fetchBackend(process.env.REACT_APP_USER_API, `users?limit=50&page=0&keyCloackUuid=${localStorage.keycloakUUID}`)
+        .then(data => {
+            localStorage.setItem('userID', data.body[0].id);
+            return data.body[0];
+        });
 }
 
 function createUser(formatedData) {

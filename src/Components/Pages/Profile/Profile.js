@@ -7,32 +7,32 @@ import TimelineLoaded from 'Components/UI/TimelineLoaded/TimelineLoaded';
 import TimelineEmpty from 'Components/UI/TimelineEmpty/TimelineEmpty';
 import Error from 'Components/UI/Error/Error';
 
-const styles ={
-    container:{
-        marginTop:'50px'
+const styles = {
+    container: {
+        marginTop: '50px'
     }
 };
 
-const ProfileView = ({posts, isFetchingPosts, postsFetchError, user, userFetchError, classes, t}) => 
-     <Container maxWidth="md" className={classes.container} >
+const ProfileView = ({ posts, isFetchingPosts, postsFetchError, user, userFetchError, classes, t }) =>
+    <Container maxWidth="md" className={classes.container} >
         <Grid item xs={12}>
             <Typography component="h1" variant='h5'>{t('title.profile')}</Typography>
             <UserProfile user={user} userFetchError={userFetchError} />
 
             <Typography component="h1" variant='h5'>{t('title.timeline')}</Typography>
-            {postsFetchError && 
+            {postsFetchError &&
                 <Error title={t('posts.error.title')} message={t('posts.error.message')}
-            />}
-            {isFetchingPosts && 
-                    <TimelineLoading />
+                />}
+            {isFetchingPosts &&
+                <TimelineLoading />
             }
             {!postsFetchError && posts && posts.length === 0 ? (
-                    <TimelineEmpty />
-                ) : (
+                <TimelineEmpty />
+            ) : (
                     <TimelineLoaded
                         posts={posts}
                     />
-            )}
+                )}
         </Grid>
     </Container>;
 
