@@ -52,7 +52,7 @@ export default props => {
     return props.history.push(`/Groups/${group.id}`);
   };
   const { groups } = props;
-  const { t } = useTranslation('groupList');
+  const { t } = useTranslation('Groups');
   const classes = useStyles();
   const quitGroup = groupid => {
     return fetch(

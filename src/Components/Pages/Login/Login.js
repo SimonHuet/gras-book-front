@@ -71,7 +71,7 @@ export default () => {
                     </Typography>
 
                     <Button color="primary" className={classes.button} onClick={() => keycloak.login()}>
-                        <Link >{t('auth.manager.redirect.placeholder')}</Link>
+                        <Link to='/home'>{t('auth.manager.redirect.placeholder')}</Link>
                     </Button>
 
                     <LanguageSelector />

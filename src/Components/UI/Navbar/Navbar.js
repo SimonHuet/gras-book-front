@@ -96,7 +96,7 @@ export default () => {
                                 <Link to="/profile" >{t('menu.profile.label')} </Link>
                             </MenuItem>
                             <MenuItem onClick={handleClose}>
-                                <Link to="/timeline" >{t('menu.profile.timeline.label')}</Link>
+                                <Link to="/Groups" >{t('menu.profile.groups.label')}</Link>
                             </MenuItem>
                         </Menu>
                         <IconButton

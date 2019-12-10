@@ -133,7 +133,7 @@ export default props => {
     </Typography>
   );
 
-  const { t } = useTranslation('GroupForm');
+  const { t } = useTranslation('Groups');
   const classes = useStyles();
 
   return (
