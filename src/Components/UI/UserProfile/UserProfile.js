@@ -27,9 +27,9 @@ const styles = {
     },
 };
 
-const UserProfileView = ({ user, userFetchError, classes, t }) =>
+const UserProfileView = ({ user, userFetchError, classes, t }) =>  
 <Box>
-    <Menu />
+  <Menu />
     <Box>
         <Grid item xs={12}>
             <Grid>
@@ -63,7 +63,7 @@ const UserProfileView = ({ user, userFetchError, classes, t }) =>
             }
         </Grid>
     </Box>
-    </Box>;
+</Box>;
 
 const UserProfile = withStyles(styles)(UserProfileView);
 
