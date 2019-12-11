@@ -8,5 +8,14 @@
             "title": "Erreur",
             "message" : "Echec du chargement du post"
         }
+    },
+    "edit":{
+        "upload": "Ajouter un fichier",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "Courriel",
+        "login": "Login",
+        "description" : "Description",
+        "button" : "Sauvegarder"
     }
 }

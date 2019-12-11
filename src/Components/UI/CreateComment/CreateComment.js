@@ -39,49 +39,18 @@ export default props => {
   const [comment, setComment] = useState({
     userUuid: localStorage.userID,
   });
-  /* const [currentImage, setCurrentImage] = useState({});
-  const onChangeImage = async e => {
-    const files = Array.from(e.target.files);
-    setState({ uploading: true });
-    setCurrentImage(URL.createObjectURL(e.target.files[0]));
-    const file = toBase64(files[0]);
-    const filename = files[0].name;
-    const extension = /[.]/.exec(filename) ? /[^.]+$/.exec(filename)[0] : undefined;
-    setComment({
-      ...comment,
-      mediaType: extension,
-    });
-    await file.then(data => {
-      console.log(extension);
-      setComment({
-        ...comment,
-        mediaBlob: data,
-        mediaType: extension,
-      });
-    });
-  }; */
+  
   useEffect(() => {
     setIsUpdated(false);
     if (commentUuid !== undefined) {
       const p = comments.comments.filter(pil => pil.uuid === commentUuid);
-      // if (p.length === 1) {
-      // setCurrentImage(p.mediaUrl);
       setComment({
         ...comment,
         content: null,
       });
       setIsUpdated(true);
-      // }
     }
   }, [comments]);
-
-  /* const toBase64 = file =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
-    }); */
 
   const actionComment = () => {
     let url = `comments`;
@@ -99,14 +68,7 @@ export default props => {
   const onChangeComment = val => {
     comment.content = val.target.value;
   };
-  /* <Grid item xs={12}>
-            <img className={classes.Image} alt="" src={currentImage} />
-          </Grid> 
-          
-            <Button className={classes.button} size="small" variant="contained" component="label">
-              {t('comments.uploadFile')}
-              <input type="file" onChange={e => onChangeImage(e)} style={{ display: 'none' }} />
-            </Button> */
+
   return (
     <div>
       <form className={classes.root} onSubmit={() => actionComment()} autoComplete="off">

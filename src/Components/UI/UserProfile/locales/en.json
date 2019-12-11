@@ -6,6 +6,7 @@
         },
         "birthDate": "Born on ",
         "creationDate": "Account created at ",
-        "email": "Email"
+        "email": "Email",
+        "edit": "Edit"
     }
 }

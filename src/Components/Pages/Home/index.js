@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
-import fetchBackend from 'Utils/fetchBackend';
-import { postsFetched, fetchPosts, postsFetchError } from 'Redux/_actions/posts';
+// import fetchBackend from 'Utils/fetchBackend';
+// import { postsFetched, fetchPosts, postsFetchError } from 'Redux/_actions/posts';
 import { connectWithLifecycle } from 'react-lifecycle-component';
 
 import Home from './Home';

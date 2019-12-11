@@ -18,6 +18,14 @@ const styles = {
     icon: {
         maxwidth: 24,
         maxHeight: 24
+    },
+    margin: {
+        backgroundColor: 'light-grey',
+        
+    },
+    list:{
+        display:'flex',
+        flexDirection:'row'
     }
 };
 
@@ -64,13 +72,13 @@ const PostView = ({ post, typeReaction, classes }) => (<>
             />
 
             {typeReaction &&
-                <List>
-                    {Object.keys(typeReaction).map(type =>
-                        <Fab key={type.uuid} onClick={() => addReaction(typeReaction[type], post, 'post')} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
+                <List className={classes.list}>
+                    {Object.keys(typeReaction).map(type => <div key={type} >
+                        <Fab onClick={() => addReaction(typeReaction[type], post, 'post')} size="small" aria-label="add" className={classes.margin} >
                             <img className={classes.icon} src={typeReaction[type].iconUrl} alt="" />
                         </Fab>
-                    )
-                    }
+                    </div>
+                    )}
                 </List>
             }
 

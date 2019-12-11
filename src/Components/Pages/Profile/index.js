@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             id = ownProps.match.params.id;
         }
 
-        fetchBackend(process.env.REACT_APP_POST_API, `users/${id}/posts?limit=6`, {
+        fetchBackend(process.env.REACT_APP_POST_API, `users/${id}/posts?limit=10`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',

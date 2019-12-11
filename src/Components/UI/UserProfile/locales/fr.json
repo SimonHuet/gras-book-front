@@ -6,6 +6,7 @@
         },
         "birthDate": "Né(e) le ",
         "creationDate": "Compte crée le ",
-        "email": "Courriel"
+        "email": "Courriel",
+        "edit": "Modifier"
     }
 }

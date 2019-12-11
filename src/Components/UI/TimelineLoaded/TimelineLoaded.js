@@ -5,6 +5,8 @@ import Error from 'Components/UI/Error/Error';
 import Timeline from 'Components/UI/Timeline';
 import groupByDay from 'Utils/GroupByDay/groupPerDay';
 import { useTranslation } from 'react-i18next';
+import { Card } from '@material-ui/core';
+import CreatePost from 'Components/UI/CreatePost/CreatePost';
 
 const styles = {
     root: {
@@ -37,11 +39,15 @@ const TimelineLoadedView = ({
         );
     }
     return <div className={classes.root}>
+        <Card>
+            <CreatePost posts={posts} />
+        </Card>
         {days.map(day => (
             <div key={day} className={classes.day}>
                 <Typography variant="subtitle2" gutterBottom>
                     {getDayString(day)}
                 </Typography>
+
                 <Timeline posts={postsByDay[day]} />
             </div>
         ))}
