@@ -98,6 +98,12 @@ export default () => {
                             <MenuItem onClick={handleClose}>
                                 <Link to="/Groups" >{t('menu.profile.groups.label')}</Link>
                             </MenuItem>
+                            <MenuItem onClick={handleClose}>
+                                <Link to="/subs" >{t('menu.profile.subs.label')}</Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleClose}>
+                                <Link to="/search" >{t('menu.profile.search.label')}</Link>
+                            </MenuItem>
                         </Menu>
                         <IconButton
                             aria-label="account of current user"

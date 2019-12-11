@@ -5,7 +5,6 @@ import {
     Button,
     CssBaseline,
     Grid,
-    Link,
     makeStyles,
     Paper,
     Typography
@@ -13,6 +12,7 @@ import {
 import AppIcon from 'Components/UI/AppIcon';
 import LanguageSelector from 'Components/UI/LanguageSelector';
 import Copyright from 'Components/UI/Copyright/Copyright';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     root: {

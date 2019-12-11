@@ -1,14 +1,7 @@
 import React from 'react';
-import CreatePost from 'Components/UI/CreatePost/CreatePost';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core';
-
-const Copyright = () => (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © Gras book '}
-      {new Date().getFullYear()}
-    </Typography>
-  );
+import Copyright from 'Components/UI/Copyright/Copyright';
 
 const useStyles = makeStyles(theme => ({
     title: {
@@ -17,14 +10,13 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default () => {
+export default ({posts}) => {
     const classes = useStyles();
 
     return <div>
         <Typography variant="h2" fontWeight="fontWeightBold" m={1} className={classes.title}>
             Home Page
         </Typography>
-        <CreatePost />
         <Copyright />;
     </div>;
 };

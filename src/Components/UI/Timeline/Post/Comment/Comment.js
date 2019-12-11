@@ -2,6 +2,7 @@ import React from 'react';
 import { ListItem, List, ListItemAvatar, Fab, ListItemText } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from 'Components/UI/Avatar/Avatar';
+import fetchBackend from 'Utils/fetchBackend';
 
 const styles = {
     wrapper: {
@@ -22,8 +23,16 @@ const styles = {
     }
 };
 
-const addReaction = (type) =>{
-    
+const addReaction = (type, comment, typeReact) =>{
+    fetchBackend(process.env.REACT_APP_REACTION_API, `reactions/`, {
+        body: JSON.stringify({
+            typeReactionUuid: type.uuid,
+            userUuid: localStorage.userID,
+            objectUuid: comment.uuid,
+            objectType: typeReact
+        }),
+        method: 'POST'
+    });
 
 };
 
@@ -45,10 +54,10 @@ export const CommentView = ({ comment, typeReaction, classes }) => <ListItem cla
         secondary={new Date(comment.createdAt).toLocaleString()}
     />
     {typeReaction &&
-        <List>
-            {Object.keys(typeReaction).map(type =>
-                <Fab key={type.uuid} onClick={addReaction(typeReaction[type], comment, 'comment')} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
-                    <img className={classes.icon} src={typeReaction[type].iconUrl} alt=""/>
+        <List className={classes.truncate} >
+            {Object.keys(typeReaction).map(type => 
+                <Fab onClick={addReaction(typeReaction[type], comment, 'comment')} size="small" color="secondaryText" aria-label="add" className={classes.margin} >
+                    <img key={type.uuid} className={classes.icon} src={typeReaction[type].iconUrl} alt=""/>
                 </Fab>
             )
             }

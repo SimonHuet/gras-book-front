@@ -4,6 +4,12 @@
             "label" : "My profile",
             "groups" : {
                 "label" : "My groups"
+            },
+            "subs": {
+                "label": "My subcribes"
+            },
+            "search":{
+               "label": "Search a user"
             }
         },
         "logout" :{

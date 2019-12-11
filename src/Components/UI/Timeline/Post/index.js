@@ -19,14 +19,14 @@ const PostView = ({ post }) => {
                 method: 'GET'
             })
                 .then(async ({ body }) => ({ ...post, user: body }))
-                .then(async (pst) => 
-                    fetchBackend(process.env.REACT_APP_POST_API, `posts/${post.userUuid}/comments`, {
+                .then(async (pst) =>
+                 fetchBackend(process.env.REACT_APP_POST_API, `posts/${post.uuid}/comments?limit=5`, {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
                     },
                     method: 'GET'})
-                    .then(async ({ body }) => ({ ...pst, comments: body }))
+                    .then(async ({ body }) =>({ ...pst, comments: body }))
                     .then(async (ps) => 
                         fetchBackend(process.env.REACT_APP_REACTION_API, `objects/${post.uuid}/typeReactions?objectType=post`,{
                             headers: {
@@ -37,9 +37,9 @@ const PostView = ({ post }) => {
                         })
                         .then(({ body }) => ({...ps, reactions: body}))
                         .then( p => setFullPost(p))
-                        .catch(err => console.log(err)))
+                        .catch(err => console.log(err))
                     .catch(err => console.error(err))
-                ).catch(err => console.error(err));
+                ).catch(err => console.error(err)));
                 
                 fetchBackend(process.env.REACT_APP_REACTION_API, `typeReactions`,{
                     headers: {

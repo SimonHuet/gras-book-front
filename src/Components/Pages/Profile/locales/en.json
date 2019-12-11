@@ -8,5 +8,14 @@
             "title": "Error",
             "message" : "Post loading failed"
         }
+    },
+    "edit":{
+        "upload": "Upload a file",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "login": "Login",
+        "description" : "Description",
+        "button" : "Save"
     }
 }
