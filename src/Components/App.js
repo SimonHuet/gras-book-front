@@ -20,7 +20,7 @@ const keycloakUserToUser = ({email, sub, family_name, given_name}) => ({
 
 const handleSuccess = async() => {
   await userService.getConnectedUser().then(user =>{
-      if(user.length === 0) {
+      if(user === undefined) {
         keycloak.loadUserInfo().then(data=> userService.createUser(keycloakUserToUser(data)));
       }
     }
@@ -37,7 +37,7 @@ const onEvent = (event, error) => {
       case 'onAuthSuccess':
         window.localStorage.setItem('authenticated', keycloak.authenticated);
         window.localStorage.setItem('keycloakUUID', keycloak.tokenParsed.sub);
-         handleSuccess();
+        handleSuccess();
         break;
       case 'onAuthLogout':
         window.localStorage.setItem('authenticated', false);
