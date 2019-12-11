@@ -14,12 +14,14 @@ import {
   TextField,
   Paper,
   Fab,
+  Box,
 } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import openSocket from 'socket.io-client';
 import * as moment from 'moment';
 import Copyright from 'Components/UI/Copyright/Copyright';
+import fetchBackend from 'Utils/fetchBackend';
 
 let currentMessagingList = [];
 
@@ -27,6 +29,9 @@ export default props => {
   const { groupUsers, messages, match } = props;
   const [messagesWithSocket, setMessagesWithSocket] = React.useState([]);
   const io = useRef();
+  const currentUser = groupUsers.groupUsers.find(c => c.id === localStorage.userID);
+  const ButtonBool =
+    currentUser && currentUser.userGroups[0].roleId === process.env.REACT_APP_ADMIN_UUID;
   useEffect(() => {
     currentMessagingList = messages.messages;
     setMessagesWithSocket(currentMessagingList);
@@ -46,8 +51,7 @@ export default props => {
       setMessagesWithSocket([]);
       currentMessagingList = [];
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [match.params.id, messages.messages]);
 
   let content = '';
   let imageURL = '';
@@ -98,13 +102,13 @@ export default props => {
   }));
   const sendMessage = () => {
     const message = {};
-    message.userUUID = '2e2a5ab9-9f63-418f-969f-fa6b65363a5f'; // WARNING INFO USER ACTUEL
+    message.userUUID = localStorage.userID;
     message.objectUUID = match.params.id;
     message.objectType = 'group';
     message.postDate = moment(new Date()).format('YYYY-MM-DD');
     message.content = content;
     message.mediaUrl = imageURL;
-    fetch(`${process.env.REACT_APP_MESSAGE_API}/messages/?format=json`, {
+    fetchBackend(`${process.env.REACT_APP_MESSAGE_API}`, `/messages/?format=json`, {
       'Content-Type': 'application/json',
       headers: new Headers({ 'content-type': 'application/json' }),
       method: 'POST',
@@ -125,20 +129,13 @@ export default props => {
     if (user.length >= 1) {
       return (
         <ListItemAvatar>
-          <Avatar
-            className={classes.MessageUserPicture}
-            alt="User picture"
-            src="https://img.icons8.com/officel/2x/person-male.png"
-          />
+          <Avatar className={classes.MessageUserPicture} alt="User picture" src={user.pictureUrl} />
         </ListItemAvatar>
-      ); // user.pictureURL;
+      );
     }
     return (
       <ListItemAvatar>
-        <Avatar
-          alt="User picture"
-          src="https://icon-library.net/images/person-to-person-icon/person-to-person-icon-28.jpg"
-        />
+        <Avatar alt="User picture" src="https://img.icons8.com/officel/2x/person-male.png" />
       </ListItemAvatar>
     );
   };
@@ -159,20 +156,29 @@ export default props => {
             groupUsers.groupUsers.map(user => (
               <ListItem key={user.id} className="list-user-item list-user-item-action">
                 <ListItemAvatar>
-                  <Avatar alt="User picture" src={user.pictureURL} />
+                  <Avatar alt="User picture" src={user.pictureUrl} />
                 </ListItemAvatar>
                 <ListItemText primary={`${user.firstName} ${user.lastName}`} />
               </ListItem>
             ))
           ) : (
-              <ListItemText primary={t('group.userList.noRecordFound')} />
-            )}
+            <ListItemText primary={t('group.userList.noRecordFound')} />
+          )}
         </List>
-        <Fab onClick={() => SelectedValue()} color="secondary" variant="extended" aria-label="edit">
-          <EditIcon />
-          {t('groupList.UpdateButton')}
-        </Fab>
-        <Copyright />
+        {ButtonBool && (
+          <Fab
+            onClick={() => SelectedValue()}
+            color="secondary"
+            variant="extended"
+            aria-label="edit"
+          >
+            <EditIcon />
+            {t('groupList.UpdateButton')}
+          </Fab>
+        )}
+        <Box className={classes.copyright} mt={5}>
+          <Copyright />
+        </Box>
       </div>
       <Paper className={classes.paperMessage}>
         <Grid className={classes.MasterGrid} container spacing={3}>
@@ -199,8 +205,8 @@ export default props => {
                 </ListItem>
               ))
             ) : (
-                <ListItemText primary={t('group.userList.noRecordFound')} />
-              )}
+              <ListItemText primary={t('group.userList.noRecordFound')} />
+            )}
           </List>
           <Grid item xs={12}>
             <TextField

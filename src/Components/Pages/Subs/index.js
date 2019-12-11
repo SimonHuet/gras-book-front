@@ -1,8 +1,7 @@
 import { connectWithLifecycle } from 'react-lifecycle-component';
-import { usersFetched, usersFetchError, fetchUsers } from 'Redux/_actions/users';
 import { followsFetched, followsFetchError, fetchFollows } from 'Redux/_actions/follows';
 import fetchBackend from 'Utils/fetchBackend';
-import search from './search';
+import subs from './subs';
 
 const mapStateToProps = state => ({
   users: state.users,
@@ -16,15 +15,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = Dispatch => ({
   componentDidMount: () => {
-    Dispatch(fetchUsers());
     Dispatch(fetchFollows());
     fetchBackend(process.env.REACT_APP_USER_API, `users/${localStorage.userID}/following`, {})
       .then(data => Dispatch(followsFetched(data.body)))
       .catch(err => Dispatch(followsFetchError(err)));
-    fetchBackend(process.env.REACT_APP_USER_API, `users`, {})
-      .then(data => Dispatch(usersFetched(data.body)))
-      .catch(err => Dispatch(usersFetchError(err)));
   },
 });
 
-export default connectWithLifecycle(mapStateToProps, mapDispatchToProps)(search);
+export default connectWithLifecycle(mapStateToProps, mapDispatchToProps)(subs);

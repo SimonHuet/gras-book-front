@@ -12,6 +12,7 @@ import {
   Paper,
 } from '@material-ui/core';
 import Copyright from 'Components/UI/Copyright/Copyright';
+import fetchBackend from 'Utils/fetchBackend';
 import UserSelect from './select';
 
 function notId(a, b) {
@@ -36,13 +37,14 @@ export default props => {
   };
 
   const newGroups = formData => {
-    let url = `${process.env.REACT_APP_USER_API}/groups`;
+    let url = `groups`;
+
     let method = 'POST';
     if (IsUpdated) {
-      url = `${process.env.REACT_APP_USER_API}/groups/${match.params.id}`;
+      url = `groups/${match.params.id}`;
       method = 'PUT';
     }
-    fetch(url, {
+    fetchBackend(process.env.REACT_APP_USER_API, url, {
       method,
       body: JSON.stringify(group),
     })
@@ -50,14 +52,15 @@ export default props => {
         if (IsUpdated) {
           return undefined;
         }
-        return resp.json();
+        return resp.body;
       })
       .then(async data => {
+        console.log(data);
         let id;
         if (match !== undefined) {
           id = match.params.id;
           await notId(groupUsers.groupUsers, List).forEach(user => {
-            fetch(`${process.env.REACT_APP_USER_API}/users/${user.id}/groups/${id}`, {
+            fetchBackend(process.env.REACT_APP_USER_API, `/users/${user.id}/groups/${id}`, {
               method: 'DELETE',
             }).catch(err => console.error(err));
           });
@@ -71,8 +74,9 @@ export default props => {
           const userGroup = {
             groupId: id,
             userId: user.id,
+            roleId: process.env.REACT_APP_MEMBER_UUID,
           };
-          fetch(`${process.env.REACT_APP_USER_API}/usersGroups/`, {
+          fetchBackend(process.env.REACT_APP_USER_API, `usersGroups`, {
             method: 'POST',
             body: JSON.stringify(userGroup),
           }).catch(err => console.error(err));
@@ -80,9 +84,10 @@ export default props => {
         if (!IsUpdated) {
           const userGroup = {
             groupId: id,
-            userId: '2e2a5ab9-9f63-418f-969f-fa6b65363a5f', // WARNING CURRENT USER UUID
+            userId: localStorage.userID,
+            roleId: process.env.REACT_APP_ADMIN_UUID,
           };
-          fetch(`${process.env.REACT_APP_USER_API}/usersGroups/`, {
+          fetchBackend(process.env.REACT_APP_USER_API, `usersGroups`, {
             method: 'POST',
             body: JSON.stringify(userGroup),
           })

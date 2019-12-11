@@ -22,10 +22,7 @@ const mapDispatchToProps = Dispatch => ({
       .then(data => Dispatch(usersFetched(data.body)))
       .catch(err => Dispatch(usersFetchError(err)));
 
-    fetchBackend(
-      process.env.REACT_APP_USER_API,
-      'users/2e2a5ab9-9f63-418f-969f-fa6b65363a5f/Groups'
-    ) // WARINING CURRENT USER UUID
+    fetchBackend(process.env.REACT_APP_USER_API, `users/${localStorage.userID}/Groups`)
       .then(data => Dispatch(groupsFetched(data.body)))
       .catch(err => Dispatch(groupsFetchError(err)));
   },

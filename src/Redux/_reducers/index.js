@@ -4,6 +4,7 @@ import { reducer as groupUsers } from './groupUsers';
 import { reducer as groups } from './groups';
 import { reducer as messages } from './messages';
 import { reducer as profile } from './profile';
+import { reducer as follows } from './follows';
 
 export const reducer = combineReducers({
   posts,
@@ -11,4 +12,5 @@ export const reducer = combineReducers({
   messages,
   groupUsers,
   profile,
+  follows,
 });
