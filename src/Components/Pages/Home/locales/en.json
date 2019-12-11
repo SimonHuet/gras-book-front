@@ -1,0 +1,12 @@
+{
+    "title":{
+        "page": "Home",
+        "timeline" : "Timeline"
+    },
+    "posts": {
+        "errors": {
+            "title": "Error",
+            "message" : "Post loading failed"
+        }
+    }
+}
