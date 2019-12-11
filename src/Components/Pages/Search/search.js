@@ -145,7 +145,7 @@ export default props => {
 
   const classes = useStyles();
 
-  const { t } = useTranslation('search');
+  const { t } = useTranslation('Search');
 
   return (
     <Grid>
@@ -194,7 +194,7 @@ export default props => {
           </FormControl>
         </Grid>
         <List className={classes.search}>
-          {tab.length > 0 ? (
+          {tab && tab.length > 0 ? (
             tab.map(user => (
               <ListItem
                 className="list-user-item list-user-item-action"
@@ -229,7 +229,7 @@ export default props => {
               </ListItem>
             ))
           ) : (
-            <ListItemText primary={t('userList.noRecordFound')} />
+            <ListItemText primary={t('search.noRecordFound')} />
           )}
         </List>
       </Grid>

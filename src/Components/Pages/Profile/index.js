@@ -37,11 +37,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
         if (!ownProps.match.params.id) {
             userService.getConnectedUser()
-                .then(user => dispatch(userFetched(user)))
+                .then(({body}) => dispatch(userFetched(body)))
                 .catch(err => dispatch(userFetchError(err)));
         } else {
             fetchBackend(process.env.REACT_APP_USER_API, `users/${id}`)
-                .then(user => dispatch(userFetched(user)))
+                .then(({ body }) => dispatch(userFetched(body)))
                 .catch(err => dispatch(userFetchError(err)));
         }
     }
