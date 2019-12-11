@@ -29,10 +29,9 @@ const CommentView = ({ comment , typeReaction}) => {
                 .then( c => setFullComment(c))
                 .catch(err => console.log(err));
             })
-            .catch(err => console.error(err));
-
-            
-    }
+            .catch(err => console.error(err));      
+        }
+        return setFullComment(false);
 }, [comment]);
 
     return <Comment comment={fullComment} typeReaction={typeReaction} />;

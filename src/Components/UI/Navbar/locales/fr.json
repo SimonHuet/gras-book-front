@@ -4,6 +4,12 @@
             "label" : "Mon profil",
             "groups" : {
                 "label" : "Mes groupes"
+            },
+            "subs": {
+                "label": "Mes abonnements"
+            },
+            "search":{
+               "label": "Chercher un utilisateur"
             }
         },
         "logout" :{

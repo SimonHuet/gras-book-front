@@ -21,7 +21,7 @@ const mapDispatchToProps = Dispatch => ({
     fetchBackend(process.env.REACT_APP_USER_API, `users/${localStorage.userID}/following`, {})
       .then(data => Dispatch(followsFetched(data.body)))
       .catch(err => Dispatch(followsFetchError(err)));
-    fetchBackend(process.env.REACT_APP_USER_API, `users`, {})
+    fetchBackend(process.env.REACT_APP_USER_API, `users?limit=50`, {})
       .then(data => Dispatch(usersFetched(data.body)))
       .catch(err => Dispatch(usersFetchError(err)));
   },

@@ -81,8 +81,9 @@ const ProfileView = props => {
       });
     });
   };
+
   const onChange = (val, name) => {
-    userUpdated[name] = val.target.value;
+    setUserUpdated({...userUpdated,[name]: val.target.value});
   };
   const onClick = val => {
     fetchBackend(process.env.REACT_APP_USER_API, `users/${user.id}`, {
@@ -90,10 +91,11 @@ const ProfileView = props => {
       body: JSON.stringify(userUpdated),
       'Content-Type': 'application/json',
     });
-    props.history.push('/', null);
+    props.history.push('/profile', null);
   };
   return (
     <Container maxWidth="md" className={classes.container}>
+      {console.log(userUpdated)}
       <Grid item xs={12}>
         <Typography component="h1" variant="h5">
           {t('title.profile')}
@@ -114,13 +116,13 @@ const ProfileView = props => {
                   </ListItemAvatar>
                 </Grid>
                 <Grid item xs={1}>
-                  <ListItemAvatar>
+                  {currentImage && <ListItemAvatar>
                     <Av alt="" src={currentImage} />
-                  </ListItemAvatar>
+                  </ListItemAvatar>}
                 </Grid>
                 <Grid item xs={2}>
                   <Button variant="contained" component="label">
-                    Upload File
+                    {t('edit.upload')}
                     <input
                       type="file"
                       onChange={e => onChangeImage(e)}
@@ -132,44 +134,44 @@ const ProfileView = props => {
                   <TextField
                     className={classes.TextField}
                     type="text"
-                    label={t('profileForm.firstName')}
+                    label={t('edit.firstName')}
                     InputProps={{ inputProps: { pattern: '^[a-zA-Z0-9]*$' } }}
                     defaultValue={user.firstName}
                     onChange={e => onChange(e, 'firstName')}
-                    name="name"
+                    name="firstName"
                   />
                 </Grid>
                 <Grid item xs={4}>
                   <TextField
                     className={classes.TextField}
                     type="text"
-                    label={t('profileForm.lastName')}
+                    label={t('edit.lastName')}
                     InputProps={{ inputProps: { pattern: '^[a-zA-Z0-9]*$' } }}
                     defaultValue={user.lastName}
                     onChange={e => onChange(e, 'lastName')}
-                    name="name"
+                    name="lastName"
                   />
                 </Grid>
                 <Grid item xs={6}>
                   <TextField
                     className={classes.TextField}
                     type="text"
-                    label={t('profileForm.email')}
+                    label={t('edit.email')}
                     InputProps={{ inputProps: { pattern: '^[a-zA-Z0-9]*$' } }}
                     defaultValue={user.email}
                     onChange={e => onChange(e, 'email')}
-                    name="name"
+                    name="email"
                   />
                 </Grid>
                 <Grid item xs={6}>
                   <TextField
                     className={classes.TextField}
                     type="text"
-                    label={t('profileForm.login')}
+                    label={t('edit.login')}
                     InputProps={{ inputProps: { pattern: '^[a-zA-Z0-9]*$' } }}
                     defaultValue={user.login}
                     onChange={e => onChange(e, 'login')}
-                    name="name"
+                    name="login"
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -177,15 +179,15 @@ const ProfileView = props => {
                     className={classes.TextField}
                     type="text"
                     multiline
-                    label={t('profileForm.description')}
+                    label={t('edit.description')}
                     InputProps={{ inputProps: { pattern: '^[a-zA-Z0-9]*$' } }}
                     defaultValue={user.description}
                     onChange={e => onChange(e, 'description')}
-                    name="name"
+                    name="description"
                   />
                 </Grid>
                 <Grid>
-                  <Button onClick={() => onClick()}>BOUTTON</Button>
+                  <Button onClick={() => onClick()}>{t('edit.button')}</Button>
                 </Grid>
               </Grid>
             )}
