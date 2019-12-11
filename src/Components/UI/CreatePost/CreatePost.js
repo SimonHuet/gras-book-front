@@ -73,7 +73,7 @@ export default props => {
       setIsUpdated(true);
       // }
     }
-  }, [posts, postUuid]);
+  }, [posts, post, postUuid]);
 
   const toBase64 = file =>
     new Promise((resolve, reject) => {
