@@ -51,6 +51,7 @@ const PostView = ({ post }) => {
                 .then(async ({ body }) => setTypeReaction(body))
                 .catch(err => console.log(err));
         }
+        return setFullPost(false);
     }, [post]);
 
     return <Post post={fullPost} typeReaction={typeReaction}/>;
