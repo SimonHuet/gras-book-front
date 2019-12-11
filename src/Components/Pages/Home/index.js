@@ -12,13 +12,13 @@ const mapStateToProps = state =>({
 
 const mapDispatchToProps = dispatch => ({
   componentDidMount: () => {
-    dispatch(fetchPosts());
+    // dispatch(fetchPosts());
 
-        fetchBackend(process.env.REACT_APP_POST_API, "routes")
+        /* fetchBackend(process.env.REACT_APP_POST_API, "routes")
         .then(data => dispatch(postsFetched(data)))
         .catch( err  => dispatch(
             postsFetchError(err))
-        );
+        ); */
     }
 });
 
