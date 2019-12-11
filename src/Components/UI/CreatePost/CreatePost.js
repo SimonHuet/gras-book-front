@@ -73,7 +73,7 @@ export default props => {
       setIsUpdated(true);
       // }
     }
-  }, [posts]);
+  }, [posts, postUuid]);
 
   const toBase64 = file =>
     new Promise((resolve, reject) => {
@@ -101,7 +101,7 @@ export default props => {
   };
 
   return (
-    <div>
+    <div data={state}>
       <form className={classes.root} onSubmit={() => actionPost()} autoComplete="off">
         <Grid container spacing={2}>
           <Grid item xs={12}>
