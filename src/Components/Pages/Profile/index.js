@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             id = ownProps.match.params.id;
         }
 
-        fetchBackend(process.env.REACT_APP_POST_API, `users/${id}/posts?limit=10`, {
+        fetchBackend(process.env.REACT_APP_POST_API, `users/${id}/posts?limit=6`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -37,11 +37,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
         if (!ownProps.match.params.id) {
             userService.getConnectedUser()
-                .then(({body}) => dispatch(userFetched(body)))
+                .then(user => dispatch(userFetched(user)))
                 .catch(err => dispatch(userFetchError(err)));
         } else {
             fetchBackend(process.env.REACT_APP_USER_API, `users/${id}`)
-                .then(({ body }) => dispatch(userFetched(body)))
+                .then(user => dispatch(userFetched(user)))
                 .catch(err => dispatch(userFetchError(err)));
         }
     }

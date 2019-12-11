@@ -66,10 +66,6 @@ export default props => {
       console.log(p);
       // if (p.length === 1) {
       setCurrentImage(p.mediaUrl);
-      setPost({
-        ...post,
-        content: null,
-      });
       setIsUpdated(true);
       // }
     }
@@ -97,7 +93,7 @@ export default props => {
   };
 
   const onChangePost = val => {
-    post.content = val.target.value;
+    setPost({...post, content: val.target.value});
   };
 
   return (
